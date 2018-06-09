@@ -1,18 +1,41 @@
 import React, {Component} from 'react';
-import {ImageBackground, TouchableOpacity, View, Text} from 'react-native';
+import {
+  ImageBackground,
+  TouchableOpacity,
+  View,
+  Text,
+  Image
+} from 'react-native';
 import {NavigationActions} from 'react-navigation';
 import {Icon} from 'react-native-elements';
 import styles from './style';
 export default class Intro extends Component {
   render() {
+    const {navigation} = this.props;
+    let title = navigation.getParam('title', 'some title');
+    let des = navigation.getParam('des', 'some description');
+
     return (
-      <ImageBackground>
+      <ImageBackground
+        source={{
+          uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
+        }}
+        resizeMode={'cover'}
+        style={styles.container}
+      >
+        <Image
+          style={styles.image}
+          source={{
+            uri:
+              'https://facebook.github.io/react-native/docs/assets/favicon.png'
+          }}
+        />
         <View>
-          <Text>{this.props.title || 'some title'}</Text>
-          <Text>{this.props.des || 'some des'}</Text>
+          <Text style={styles.titleText}>{title || 'some title'}</Text>
+          <Text style={styles.desText}>{des || 'some des'}</Text>
         </View>
-        <TouchableOpacity>
-          <Text>START GAME</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>START GAME</Text>
         </TouchableOpacity>
       </ImageBackground>
     );

@@ -18,9 +18,9 @@ let screen = Dimensions.get('window');
 
 let PlayStack = StackNavigator(
   {
-    Play: <Play navigate={navigate} />,
-    Game: <Game navigate={navigate} />,
-    Intro: <Intro navigate={navigate} />
+    Play: Play,
+    Game: Game,
+    Intro: Intro
   },
   {
     headerMode: 'none'

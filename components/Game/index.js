@@ -23,7 +23,10 @@ export default class MenuItem extends Component {
       <TouchableOpacity
         style={styles.container}
         onPress={() => {
-          this.props.navigation.dispatch(navigateAction);
+          this.props.navigation.navigate('Intro', {
+            title: this.props.title,
+            des: this.props.des
+          });
         }}
       >
         <Image />
