@@ -16,16 +16,6 @@ import Game from '../components/Game';
 
 let screen = Dimensions.get('window');
 
-let PlayStack = StackNavigator(
-  {
-    Play: Play,
-    Game: Game,
-    Intro: Intro
-  },
-  {
-    headerMode: 'none'
-  }
-);
 const tabNav = createBottomTabNavigator(
   {
     Home: {
@@ -37,7 +27,7 @@ const tabNav = createBottomTabNavigator(
       navigationOptions: {title: 'MyCourse'}
     },
     Play: {
-      screen: PlayStack,
+      screen: Play,
       navigationOptions: {title: 'Play'}
     }
   },
@@ -99,7 +89,7 @@ const ShareStack = StackNavigator({
       title: 'Share',
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Ionicons name="ios-menu" />
+          <Ionicons name="ios-menu" size={30} />
         </TouchableOpacity>
       ),
       headerStyle: {paddingRight: 10, paddingLeft: 10}
@@ -113,7 +103,7 @@ const ContactStack = StackNavigator({
       title: 'Contact Us',
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Ionicons name="ios-menu" />
+          <Ionicons name="ios-menu" size={30} />
         </TouchableOpacity>
       ),
       headerStyle: {paddingRight: 10, paddingLeft: 10}
@@ -130,6 +120,9 @@ let drawer = DrawerNavigator(
     },
     Contact: {
       screen: ContactStack
+    },
+    Intro: {
+      screen: Intro
     }
   },
   {

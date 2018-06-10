@@ -2,20 +2,13 @@ export default {
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    borderRadius: 6,
-    margin: 10,
-    justifyContent: 'space-around',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 0.7,
-    shadowRadius: 3,
-    elevation: 3,
+    justifyContent: 'center',
     alignItems: 'center'
   },
   button: {
     backgroundColor: '#fff',
     borderRadius: 3,
-
+    marginTop: 80,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 10},
     shadowRadius: 1,
@@ -23,7 +16,8 @@ export default {
     alignItems: 'center'
   },
   wrapper: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    marginTop: 80
   },
   buttonText: {
     color: 'blue',
@@ -35,13 +29,16 @@ export default {
 
   image: {
     height: 100,
-    width: '50%'
+    width: '50%',
+    marginBottom: 40
   },
   titleText: {
     color: 'white',
-    fontWeight: '600'
+    fontWeight: '600',
+    fontSize: 22
   },
   desText: {
-    color: 'white'
+    color: 'white',
+    fontSize: 16
   }
 };

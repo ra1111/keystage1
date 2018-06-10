@@ -14,9 +14,18 @@ export default {
     alignItems: 'center'
   },
   title: {
-    fontWeight: '600'
+    fontWeight: '600',
+    textAlign: 'center',
+    alignSelf: 'center'
   },
   des: {
-    fontWeight: '100'
+    fontWeight: '100',
+    textAlign: 'center',
+    alignSelf: 'center'
+  },
+  image: {
+    height: 40,
+    width: 40,
+    borderRadius: 20
   }
 };

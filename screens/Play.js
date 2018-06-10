@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     display: 'flex',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#EEEEEE'
   },
   wrapper: {
     display: 'flex',

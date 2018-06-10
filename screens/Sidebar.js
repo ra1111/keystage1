@@ -22,6 +22,7 @@ export default class SideBar extends Component {
           <View style={styles.container}>
             {data.menu.map((index, key) => (
               <MenuItem
+                key={key}
                 navigation={navigation}
                 text={index.text}
                 icon={index.icon}

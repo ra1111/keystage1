@@ -37,6 +37,14 @@ export default class Intro extends Component {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>START GAME</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.props.navigation.navigate('Home');
+          }}
+        >
+          <Text style={styles.buttonText}>Go Back</Text>
+        </TouchableOpacity>
       </ImageBackground>
     );
   }

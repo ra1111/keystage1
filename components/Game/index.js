@@ -29,7 +29,13 @@ export default class MenuItem extends Component {
           });
         }}
       >
-        <Image />
+        <Image
+          source={{
+            uri:
+              'https://facebook.github.io/react-native/docs/assets/favicon.png'
+          }}
+          style={styles.image}
+        />
         <Text style={styles.title}>{this.props.title || 'hi'}</Text>
         <Text style={styles.des}>{this.props.des || 'some description'}</Text>
       </TouchableOpacity>
