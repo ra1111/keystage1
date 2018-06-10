@@ -34,7 +34,12 @@ export default class Intro extends Component {
           <Text style={styles.titleText}>{title || 'some title'}</Text>
           <Text style={styles.desText}>{des || 'some des'}</Text>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            this.props.navigation.navigate('Add');
+          }}
+        >
           <Text style={styles.buttonText}>START GAME</Text>
         </TouchableOpacity>
         <TouchableOpacity

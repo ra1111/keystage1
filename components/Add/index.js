@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import {Icon} from 'react-native-elements';
 import {NavigationActions} from 'react-navigation';
-import styles from '../components/Add/styles';
-export default class MyCourse extends Component {
+import styles from './styles';
+export default class MenuItem extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -20,20 +20,14 @@ export default class MyCourse extends Component {
           <Icon />
         </View>
         <View style={styles.optionWrapper}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>{this.props.firstOption || 1}</Text>
+          <TouchableOpacity>
+            <Text>{this.props.firstOption || 1}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>
-              {' '}
-              {this.props.secondOption || 1}
-            </Text>
+          <TouchableOpacity>
+            <Text> {this.props.secondOption || 1}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>
-              {' '}
-              {this.props.thirdOption || 1}{' '}
-            </Text>
+          <TouchableOpacity>
+            <Text> {this.props.thirdOption || 1} </Text>
           </TouchableOpacity>
         </View>
       </View>

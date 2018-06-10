@@ -13,6 +13,7 @@ import Sidebar from '../screens/Sidebar';
 import Contact from '../screens/Contact';
 import Intro from '../components/Intro';
 import Game from '../components/Game';
+import Add from '../components/Add';
 
 let screen = Dimensions.get('window');
 
@@ -123,6 +124,9 @@ let drawer = DrawerNavigator(
     },
     Intro: {
       screen: Intro
+    },
+    Add: {
+      screen: Add
     }
   },
   {
