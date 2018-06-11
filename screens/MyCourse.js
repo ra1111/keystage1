@@ -17,7 +17,7 @@ export default class MyCourse extends Component {
         <View style={styles.question}>
           <Text style={styles.questionText}>{this.props.firstNumber || 1}</Text>
           </View > 
-          <Icon />
+          <Icon name={this.props.name||'ios-add'} raised type="ionicon" size={28} color={'orange'}  />
           <View style={styles.question}>
           <Text style={styles.questionText}>{this.props.secondNumber || 1}</Text>
           </View>

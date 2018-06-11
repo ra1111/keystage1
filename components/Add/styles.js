@@ -8,7 +8,7 @@ export default {
   },
   questionWrapper: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     backgroundColor: '#fbf0e5',
     height:80,
     borderRadius:8,
@@ -51,7 +51,13 @@ export default {
     fontWeight:'700'
   },
   question:{
-    BackgroundColor:'orange',
+    alignSelf:'center',
+        shadowColor: 'rgba(0,0,0, .4)',
+        shadowOffset: { height: 1, width: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 1,
+
+    backgroundColor:'orange',
     height:40,
     width:40,
     borderRadius:10,
