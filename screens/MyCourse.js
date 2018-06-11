@@ -14,9 +14,13 @@ export default class MyCourse extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.questionWrapper}>
-          <Text>{this.props.firstNumber || 1}</Text>
+        <View style={styles.question}>
+          <Text style={styles.questionText}>{this.props.firstNumber || 1}</Text>
+          </View > 
           <Icon />
-          <Text>{this.props.secondNumber || 1}</Text>
+          <View style={styles.question}>
+          <Text style={styles.questionText}>{this.props.secondNumber || 1}</Text>
+          </View>
           <Icon />
         </View>
         <View style={styles.optionWrapper}>

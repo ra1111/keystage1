@@ -3,11 +3,20 @@ export default {
     flex: 1,
     backgroundColor: '#186da5',
     flexDirection: 'column',
+
     justifyContent: 'space-between'
   },
   questionWrapper: {
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#fbf0e5',
+    height:80,
+    borderRadius:8,
+    marginTop:40,
+    alignSelf:'center',
+    marginHorizontal:25,
+    width:'75%'
+
   },
   optionWrapper: {
     flexDirection: 'column',
@@ -33,5 +42,18 @@ export default {
     marginTop: 15,
     textAlign: 'center',
     alignSelf: 'center'
+  },
+  questionText:{
+    color: 'blue',
+    textAlign: 'center',
+    alignSelf: 'center',
+    fontSize:18,
+    fontWeight:'700'
+  },
+  question:{
+    BackgroundColor:'orange',
+    height:40,
+    width:40,
+    borderRadius:10,
   }
 };

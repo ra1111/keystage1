@@ -14,9 +14,9 @@ export default class MenuItem extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.questionWrapper}>
-          <Text>{this.props.firstNumber || 1}</Text>
+          <Text style={styles.buttonText}>{this.props.firstNumber || 1}</Text>
           <Icon />
-          <Text>{this.props.secondNumber || 1}</Text>
+          <Text  style={styles.buttonText}>{this.props.secondNumber || 1}</Text>
           <Icon />
         </View>
         <View style={styles.optionWrapper}>
