@@ -75,5 +75,7 @@ const styles = StyleSheet.create({
   }
 });
 Play.navigationOptions = {
-  title: 'Play'
+  title: 'Play',
+  backgroundColor:'#023667',
+  width:'100%',
 };
