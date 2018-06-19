@@ -34,7 +34,7 @@ export default {
   hexagonAfter: {
     position: 'absolute',
     bottom: -25,
-    left: 0,
+    left: 60,
     width: 0,
     height: 0,
     borderStyle: 'solid',
@@ -48,7 +48,7 @@ export default {
   hexagonBefore: {
     position: 'absolute',
     top: -25,
-    left: 0,
+    left: 60,
     width: 0,
     height: 0,
     borderStyle: 'solid',
