@@ -28,7 +28,9 @@ export default class Add extends Component {
       option2: 0
     };
   }
-  wrongOption() {}
+  wrongOption(e) {
+    console.log(e.target);
+  }
   randomGenerator() {
     number1 = Math.floor(Math.random() * 10);
     number2 = Math.floor(Math.random() * 10);

@@ -37,7 +37,7 @@ export default class Intro extends Component {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            this.props.navigation.navigate('Add');
+            this.props.navigation.navigate('Count');
           }}
         >
           <Text style={styles.buttonText}>START GAME</Text>

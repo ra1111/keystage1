@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "firebase": "^5.0.4",
+    "number-to-words": "^1.2.3",
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-elements": "^0.19.1",
