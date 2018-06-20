@@ -41,7 +41,7 @@ export default {
   hexagonAfter: {
     position: 'absolute',
     bottom: -25,
-    left: 60,
+    left: 0,
     width: 0,
     height: 0,
     borderStyle: 'solid',
@@ -55,7 +55,7 @@ export default {
   hexagonBefore: {
     position: 'absolute',
     top: -25,
-    left: 60,
+    left: 0,
     width: 0,
     height: 0,
     borderStyle: 'solid',
@@ -65,6 +65,36 @@ export default {
     borderRightColor: 'transparent',
     borderBottomWidth: 25,
     borderBottomColor: 'red'
+  },
+  pentagon: {
+    backgroundColor: 'transparent'
+  },
+  pentagonInner: {
+    width: 90,
+    borderBottomColor: 'red',
+    borderBottomWidth: 0,
+    borderLeftColor: 'transparent',
+    borderLeftWidth: 18,
+    borderRightColor: 'transparent',
+    borderRightWidth: 18,
+    borderTopColor: 'red',
+    borderTopWidth: 50
+  },
+  pentagonBefore: {
+    position: 'absolute',
+    height: 0,
+    width: 0,
+    top: -35,
+    left: 0,
+    borderStyle: 'solid',
+    borderBottomColor: 'red',
+    borderBottomWidth: 35,
+    borderLeftColor: 'transparent',
+    borderLeftWidth: 45,
+    borderRightColor: 'transparent',
+    borderRightWidth: 45,
+    borderTopWidth: 0,
+    borderTopColor: 'transparent'
   },
   triangle: {
     width: 0,
@@ -155,17 +185,5 @@ export default {
     top: 0,
     left: 0,
     transform: [{rotate: '45deg'}]
-  },
-  parallelogram: {
-    width: 150,
-    height: 100
-  },
-  parallelogramInner: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    backgroundColor: 'red',
-    width: 150,
-    height: 100
   }
 };
