@@ -4,6 +4,13 @@ export default {
     height: 100,
     backgroundColor: 'red'
   },
+  container: {
+    marginHorizontal: 40,
+    marginVertical: 10,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  },
   rectangle: {
     width: 100 * 2,
     height: 100,

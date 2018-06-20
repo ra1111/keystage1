@@ -11,7 +11,7 @@ import {
 import {Icon} from 'react-native-elements';
 import {NavigationActions} from 'react-navigation';
 import styles from '../components/Add/styles';
-import Hexagon from '../components/Shapes/Hexagon';
+import Hexagon from '../components/Shapes';
 var {width, height} = Dimensions.get('window');
 export default class MyCourse extends Component {
   constructor(props) {
