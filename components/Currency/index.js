@@ -43,10 +43,50 @@ let arr = [
   FivePounds
 ];
 //100 penies=1 pound
+let val = [50, 5, 1, 100, 10, 2000, 2, 200, 10, 2000, 2000, 500, 500];
 
 export default class Currency extends Component {
   constructor(props) {
     super(props);
+  }
+  randomGenerator() {
+    number = Math.floor((Math.random() + 1) * 20);
+    ans = converter.toWords(number);
+    option1 = converter.toWords(number - 1);
+    option2 = converter.toWords(number + 1);
+    random = Math.floor(Math.random() * 3);
+    if (random === 3) {
+      this.setState({
+        number1: number,
+
+        ans: ans,
+        option1: option1,
+        option2: option2
+      });
+    } else if (random === 2) {
+      this.setState({
+        number1: number,
+        ans: option1,
+        option1: ans,
+        option2: option2
+      });
+    } else if (random === 1) {
+      this.setState({
+        number1: number,
+
+        ans: option1,
+        option1: option2,
+        option2: ans
+      });
+    } else {
+      this.setState({
+        number1: number,
+
+        ans: ans,
+        option1: option2,
+        option2: option1
+      });
+    }
   }
   render() {
     return (
