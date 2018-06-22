@@ -28,41 +28,79 @@ let key = [
   Octagon,
   Pentagon
 ];
+let ans = 'Triangle';
 
 export default class ShapesSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
       number1: Triangle,
-      ans: 0,
-      option1: 0,
-      option2: 0
+      ans: 'Triangle',
+      option1: 'Square',
+      option2: 'Circle'
     };
   }
   options() {
-    let min = 0;
+    let arr = [];
+    let k = 0;
+    let min = 29,
+      min1 = 23;
     let max = key.length;
-
-    let number = min + Math.floor(Math.random() * max);
-    let number1 = min + Math.floor(Math.random() * (max - 1));
-    let number2 = min + Math.floor(Math.random() * (max - 2));
+    while (k < 3) {
+      var randomNumber = Math.floor(Math.random() * max) + 1;
+      randomNumber %= max;
+      if (arr.indexOf(randomNumber) > -1) continue;
+      arr[k] = randomNumber;
+      k++;
+    }
+    let number = arr[0];
+    let number1 = arr[1];
+    let number2 = arr[2];
+    let random = Math.floor(Math.random() * 3);
     let ret = key[number].toString();
 
     ret = ret.substr('function '.length);
     ret = ret.substr(0, ret.indexOf('('));
+    ans = ret;
     var ret1 = key[number1].toString();
     var ret2 = key[number2].toString();
     ret1 = ret1.substr('function '.length);
     ret1 = ret1.substr(0, ret1.indexOf('('));
     ret2 = ret2.substr('function '.length);
     ret2 = ret2.substr(0, ret2.indexOf('('));
-    this.setState({
-      number1: key[number],
-      ans: ret,
-      option1: ret1,
-      option2: ret2
-    });
-    console.log(ret, ret1, ret2);
+    console.log(key[number], ret, ret1, ret2);
+    if (random === 1) {
+      this.setState({
+        number1: key[number],
+        ans: ret,
+        option1: ret1,
+        option2: ret2
+      });
+    } else if (random === 2) {
+      this.setState({
+        number1: key[number],
+        ans: ret1,
+        option1: ret,
+        option2: ret2
+      });
+    } else if (random === 3) {
+      this.setState({
+        number1: key[number],
+        ans: ret2,
+        option1: ret1,
+        option2: ret
+      });
+    } else {
+      this.setState({
+        number1: key[number],
+        ans: ret,
+        option1: ret1,
+        option2: ret2
+      });
+    }
+  }
+  wrong() {
+    console.log('WRONG ANS SELECTED');
   }
   render() {
     return (
@@ -72,15 +110,25 @@ export default class ShapesSelect extends Component {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
-              this.options();
+              ans === this.state.option2 ? this.options() : this.wrong();
             }}
           >
             <Text style={styles.buttonText}>{this.state.option2}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              ans === this.state.ans ? this.options() : this.wrong();
+            }}
+          >
             <Text style={styles.buttonText}>{this.state.ans}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              ans === this.state.option1 ? this.options() : this.wrong();
+            }}
+          >
             <Text style={styles.buttonText}>{this.state.option1}</Text>
           </TouchableOpacity>
         </View>

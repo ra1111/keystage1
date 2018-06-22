@@ -7,7 +7,7 @@ import {
   Image
 } from 'react-native';
 import styles from './styles';
-export default class Shapes extends Component {
+export default class Parallelogram extends Component {
   render() {
     return (
       <View style={styles.parallelogram}>
