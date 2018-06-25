@@ -35,7 +35,7 @@ let arr = [
 ];
 let ans = 0;
 //100 penies=1 pound
-let val = [50, 5, 1, 100, 10, 2000, 2, 200];
+let val = [0.5, 0.05, 0.01, 1, 0.1, 0.2, 0.02, 2.0];
 
 export default class Currency extends Component {
   constructor(props) {
@@ -59,9 +59,13 @@ export default class Currency extends Component {
     number2 %= max;
 
     ans = val[number1] + val[number2];
+    ans = (ans * 1).toFixed(3);
     random = Math.floor(Math.random() * 3);
-    option1 = ans + 1;
-    option2 = ans - 1;
+    option1 = ans * 1.2;
+    option2 = ans / 2;
+    option1 = '€' + (option1 * 1).toFixed(3);
+    option2 = '€' + (option2 * 1).toFixed(3);
+    ans = '€' + ans;
     if (random === 3) {
       this.setState({
         number1: arr[number1],
