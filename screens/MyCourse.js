@@ -11,7 +11,7 @@ import {
 import {Icon} from 'react-native-elements';
 import {NavigationActions} from 'react-navigation';
 import styles from '../components/Add/styles';
-import Currency from '../components/Currency';
+import Count from '../components/Count';
 var {width, height} = Dimensions.get('window');
 export default class MyCourse extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class MyCourse extends Component {
   render() {
     return (
       <View style={stylez.container}>
-        <Currency />
+        <Count />
       </View>
     );
   }
