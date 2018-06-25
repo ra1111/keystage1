@@ -51,12 +51,41 @@ export default class Count extends Component {
   randomGenerator() {
     obj = [];
     let max = arr.length;
-    ans = Math.floor((Math.random() + 1) * 5);
+    ans = Math.floor((Math.random() + 1) * 1000) % 10;
     index = Math.floor((Math.random() + 1) * 100);
     index %= max;
+
     obj = new Array(ans);
     obj = obj.fill(arr[index]);
-    this.setState({ans: ans});
+    random = Math.floor(Math.random() * 3);
+    option1 = ans + 1;
+    option2 = ans - 1;
+
+    if (random === 3) {
+      this.setState({
+        ans: ans,
+        option1: option1,
+        option2: option2
+      });
+    } else if (random === 2) {
+      this.setState({
+        ans: option1,
+        option1: ans,
+        option2: option2
+      });
+    } else if (random === 1) {
+      this.setState({
+        ans: option1,
+        option1: option2,
+        option2: ans
+      });
+    } else {
+      this.setState({
+        ans: ans,
+        option1: option2,
+        option2: option1
+      });
+    }
   }
   wrongOption() {
     console.log('Wrong Option');

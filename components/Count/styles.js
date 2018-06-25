@@ -9,12 +9,12 @@ export default {
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#fbf0e5',
-    height: 80,
+    height: 140,
     borderRadius: 8,
     marginTop: 40,
     alignSelf: 'center',
     marginHorizontal: 25,
-    width: '75%'
+    width: '100%'
   },
   optionWrapper: {
     flexDirection: 'column',
@@ -43,11 +43,8 @@ export default {
     alignSelf: 'center'
   },
   questionText: {
-    color: 'blue',
-    textAlign: 'center',
     alignSelf: 'center',
-    fontSize: 18,
-    fontWeight: '700',
+    flex: 1,
     resizeMode: 'contain'
   },
   question: {
