@@ -13,39 +13,29 @@ import * as converter from 'number-to-words';
 import {Icon} from 'react-native-elements';
 import {NavigationActions} from 'react-navigation';
 import FiftyPence from '../../Assets/Images/FiftyPence.png';
-import FiveSterling from '../../Assets/Images/FiveSterling.png';
+import FivePence from '../../Assets/Images/FivePence.png';
 import OnePenny from '../../Assets/Images/OnePenny.png';
 import OnePound from '../../Assets/Images/OnePound.png';
 import TenPence from '../../Assets/Images/TenPence.png';
 import TwentyPence from '../../Assets/Images/TwentyPence.png';
-import TwoPenny from '../../Assets/Images/TwoPenny.png';
+import TwoPence from '../../Assets/Images/TwoPence.png';
 import TwoPounds from '../../Assets/Images/TwoPounds.png';
-import TenPound from '../../Assets/Images/TenPounds.png';
-// import TwentyPounds from '../../Assets/Images/TwentyPound.png';
-// import TwentyPound from '../../Assets/Images/TwentyPounds.png';
-// import FivePound from '../../Assets/Images/FivePound.png';
-// import FivePounds from '../../Assets/Images/FivePounds.png';
 
 import styles from './styles';
 var {width, height} = Dimensions.get('window');
 let arr = [
   FiftyPence,
-  FiveSterling,
+  FivePence,
   OnePenny,
   OnePound,
   TenPence,
   TwentyPence,
-  TwoPenny,
-  TwoPounds,
-  TenPence
-  // TwentyPounds,
-  // TwentyPound,
-  // FivePound,
-  // FivePounds
+  TwoPence,
+  TwoPounds
 ];
 let ans = 0;
 //100 penies=1 pound
-let val = [50, 5, 1, 100, 10, 2000, 2, 200, 10];
+let val = [50, 5, 1, 100, 10, 2000, 2, 200];
 
 export default class Currency extends Component {
   constructor(props) {
