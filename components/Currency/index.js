@@ -114,6 +114,7 @@ export default class Currency extends Component {
                 />
               </View>
               <Icon
+                style={styles.Icon}
                 name={this.props.name || 'ios-add'}
                 raised
                 type="ionicon"

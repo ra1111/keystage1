@@ -7,6 +7,7 @@ export default {
   },
   questionWrapper: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: '#fbf0e5',
     height: 160,
@@ -55,9 +56,10 @@ export default {
     shadowRadius: 1,
     backgroundColor: 'orange',
     height: 80,
-    width: 40,
+    width: 80,
     borderRadius: 10
   },
+  Icon: {},
   timer: {
     backgroundColor: '#023667',
     width: '100%',
