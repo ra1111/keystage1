@@ -11,6 +11,7 @@ import {Icon} from 'react-native-elements';
 import styles from './styles';
 export default class GameOver extends Component {
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <View style={styles.score}>
@@ -35,10 +36,20 @@ export default class GameOver extends Component {
           <View style={styles.border} />
         </View>
         <View style={styles.stats}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.navigate('Home');
+            }}
+          >
             <Text style={styles.buttonText}>EXIT</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.navgate(this.props.route);
+            }}
+          >
             <Text style={styles.buttonText}>Play Again</Text>
           </TouchableOpacity>
         </View>

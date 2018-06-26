@@ -113,6 +113,7 @@ export default class Count extends Component {
     correct = -1;
   }
   render() {
+    console.log(this.props);
     if (questionNumber !== 5) {
       return (
         <ScrollView>
@@ -197,9 +198,11 @@ export default class Count extends Component {
       return (
         <View style={styles.container}>
           <GameOver
+            navigation={this.props.navigation}
             correct={correct}
             score={score}
             won={k == 3 ? false : true}
+            route="Counts"
           />
         </View>
       );

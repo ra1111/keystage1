@@ -19,7 +19,8 @@ export default class MenuItem extends Component {
         onPress={() => {
           this.props.navigation.navigate(this.props.route, {
             title: this.props.title,
-            des: this.props.des
+            des: this.props.des,
+            navigation: this.props.navigation
           });
         }}
       >
