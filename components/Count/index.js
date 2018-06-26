@@ -26,7 +26,8 @@ let number1 = 0,
   number2 = 0,
   ans = 0,
   option1 = 0,
-  option2 = 0;
+  option2 = 0,
+  score = 0;
 let obj = [];
 let arr = [
   FiftyPence,
@@ -44,6 +45,7 @@ let book1 = 'green',
   book3 = 'green';
 let k = 0;
 let questionNumber = 0;
+let correct = 5;
 export default class Count extends Component {
   constructor(props) {
     super(props);
@@ -93,6 +95,7 @@ export default class Count extends Component {
       });
     }
     questionNumber++;
+    score += 5;
   }
   wrongOption() {
     if (k == 0) {
@@ -106,6 +109,8 @@ export default class Count extends Component {
       questionNumber = 5;
     }
     k++;
+    score = -2;
+    correct = -1;
   }
   render() {
     if (questionNumber !== 5) {
@@ -191,7 +196,11 @@ export default class Count extends Component {
     } else {
       return (
         <View style={styles.container}>
-          <GameOver />
+          <GameOver
+            correct={correct}
+            score={score}
+            won={k == 3 ? false : true}
+          />
         </View>
       );
     }
