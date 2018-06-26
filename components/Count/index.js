@@ -51,7 +51,7 @@ export default class Count extends Component {
   randomGenerator() {
     obj = [];
     let max = arr.length;
-    ans = Math.floor((Math.random() + 1) * 1000) % 10;
+    ans = Math.floor((Math.random() + 1) * 1000) % 10 + 3;
     index = Math.floor((Math.random() + 1) * 100);
     index %= max;
 
@@ -86,6 +86,7 @@ export default class Count extends Component {
         option2: option1
       });
     }
+    console.log(obj, index);
   }
   wrongOption() {
     console.log('Wrong Option');
