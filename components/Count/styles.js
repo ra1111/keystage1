@@ -3,10 +3,10 @@ export default {
     backgroundColor: '#186da5',
     flexDirection: 'column',
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   questionWrapper: {
-    flexDirection: 'row',
+    // flexDirection: 'column',
     justifyContent: 'space-around',
     backgroundColor: '#fbf0e5',
     height: 140,
@@ -31,7 +31,7 @@ export default {
     borderRadius: 3,
     height: 50,
     width: '50%',
-    marginTop: 80,
+    marginTop: 40,
     shadowColor: 'rgba(0,0,0, .4)',
     shadowOffset: {height: 1, width: 1},
     shadowOpacity: 1,
@@ -55,16 +55,20 @@ export default {
   question: {
     alignSelf: 'center',
     shadowColor: 'rgba(0,0,0, .4)',
-    flex: 1,
+
     flexDirection: 'row',
     justifyContent: 'center',
     shadowOffset: {height: 1, width: 1},
     shadowOpacity: 1,
     shadowRadius: 1,
     backgroundColor: 'orange',
-    height: 40,
-    width: 40,
+    height: 60,
+    width: '100%',
     borderRadius: 10
+  },
+  coin: {
+    textAlign: 'center',
+    fontWeight: '800'
   },
   timer: {
     backgroundColor: '#023667',

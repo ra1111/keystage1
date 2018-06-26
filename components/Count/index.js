@@ -38,6 +38,10 @@ let arr = [
   TwoPounds
 ];
 let index;
+let book1 = 'green',
+  book2 = 'green',
+  book3 = 'green';
+let k = 0;
 export default class Count extends Component {
   constructor(props) {
     super(props);
@@ -86,10 +90,18 @@ export default class Count extends Component {
         option2: option1
       });
     }
-    console.log(obj, index);
   }
   wrongOption() {
-    console.log('Wrong Option');
+    if (k == 0) {
+      book1 = 'red';
+    }
+    if (k == 1) {
+      book2 = 'red';
+    }
+    if (k == 3) {
+      book3 = 'red';
+    }
+    k++;
   }
   render() {
     return (
@@ -101,24 +113,27 @@ export default class Count extends Component {
               raised
               type="ionicon"
               size={28}
-              color={'green'}
+              color={book1}
             />
             <Icon
               name={'ios-book'}
               raised
               type="ionicon"
               size={28}
-              color={'green'}
+              color={book2}
             />
             <Icon
               name={'ios-book'}
               raised
               type="ionicon"
               size={28}
-              color={'green'}
+              color={book3}
             />
           </View>
           <View style={styles.questionWrapper}>
+            <View>
+              <Text style={styles.coin}>How many coins are there?</Text>
+            </View>
             <View style={styles.question}>
               {obj.map((indexs, arrs) => {
                 return (
