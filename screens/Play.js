@@ -25,23 +25,23 @@ export default class Play extends Component {
               title="counting"
               des="some random addition"
             />
-            <Game
+            {/* <Game
               navigation={navigation}
               title="comparision"
               des="some random addition"
-            />
-          </View>
-          <View style={styles.wrapper}>
+            /> */}
+            {/* </View> */}
+            {/* <View style={styles.wrapper}> */}
             <Game
               navigation={navigation}
               title="shapes"
               des="square trap etc"
             />
-            <Game
+            {/* <Game
               navigation={navigation}
               title="fraction"
               des="using pics show eg"
-            />
+            /> */}
           </View>
           <View style={styles.wrapper}>
             <Game
@@ -76,6 +76,6 @@ const styles = StyleSheet.create({
 });
 Play.navigationOptions = {
   title: 'Play',
-  backgroundColor:'#023667',
-  width:'100%',
+  backgroundColor: '#023667',
+  width: '100%'
 };

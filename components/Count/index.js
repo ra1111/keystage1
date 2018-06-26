@@ -189,7 +189,11 @@ export default class Count extends Component {
         </ScrollView>
       );
     } else {
-      return <GameOver />;
+      return (
+        <View style={styles.container}>
+          <GameOver />
+        </View>
+      );
     }
   }
 }
