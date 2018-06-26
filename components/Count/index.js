@@ -20,6 +20,7 @@ import TwentyPence from '../../Assets/Images/TwentyPence.png';
 import TwoPence from '../../Assets/Images/TwoPence.png';
 import TwoPounds from '../../Assets/Images/TwoPounds.png';
 import styles from './styles';
+import GameOver from '../GameOver';
 var {width, height} = Dimensions.get('window');
 let number1 = 0,
   number2 = 0,
@@ -42,6 +43,7 @@ let book1 = 'green',
   book2 = 'green',
   book3 = 'green';
 let k = 0;
+let questionNumber = 0;
 export default class Count extends Component {
   constructor(props) {
     super(props);
@@ -90,6 +92,7 @@ export default class Count extends Component {
         option2: option1
       });
     }
+    questionNumber++;
   }
   wrongOption() {
     if (k == 0) {
@@ -100,82 +103,93 @@ export default class Count extends Component {
     }
     if (k == 3) {
       book3 = 'red';
+      questionNumber = 5;
     }
     k++;
   }
   render() {
-    return (
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={styles.life}>
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book1}
-            />
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book2}
-            />
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book3}
-            />
-          </View>
-          <View style={styles.questionWrapper}>
-            <View>
-              <Text style={styles.coin}>How many coins are there?</Text>
+    if (questionNumber !== 5) {
+      return (
+        <ScrollView>
+          <View style={styles.container}>
+            <View style={styles.life}>
+              <Icon
+                name={'ios-book'}
+                raised
+                type="ionicon"
+                size={28}
+                color={book1}
+              />
+              <Icon
+                name={'ios-book'}
+                raised
+                type="ionicon"
+                size={28}
+                color={book2}
+              />
+              <Icon
+                name={'ios-book'}
+                raised
+                type="ionicon"
+                size={28}
+                color={book3}
+              />
             </View>
-            <View style={styles.question}>
-              {obj.map((indexs, arrs) => {
-                return (
-                  <Image source={arr[index]} style={styles.questionText} />
-                );
-              })}
+            <View style={styles.questionWrapper}>
+              <View>
+                <Text style={styles.coin}>How many coins are there?</Text>
+              </View>
+              <View style={styles.question}>
+                {obj.map((indexs, arrs) => {
+                  return (
+                    <Image source={arr[index]} style={styles.questionText} />
+                  );
+                })}
+              </View>
+            </View>
+            <View style={styles.optionWrapper}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={e => {
+                  ans == this.state.ans
+                    ? this.randomGenerator(e)
+                    : this.wrongOption(e);
+                }}
+              >
+                <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={e => {
+                  ans == this.state.option1
+                    ? this.randomGenerator(e)
+                    : this.wrongOption(e);
+                }}
+              >
+                <Text style={styles.buttonText}>
+                  {' '}
+                  {this.state.option1 || 1}
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={e => {
+                  ans == this.state.option2
+                    ? this.randomGenerator(e)
+                    : this.wrongOption(e);
+                }}
+              >
+                <Text style={styles.buttonText}>
+                  {' '}
+                  {this.state.option2 || 3}{' '}
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.optionWrapper}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={e => {
-                ans == this.state.ans
-                  ? this.randomGenerator(e)
-                  : this.wrongOption(e);
-              }}
-            >
-              <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={e => {
-                ans == this.state.option1
-                  ? this.randomGenerator(e)
-                  : this.wrongOption(e);
-              }}
-            >
-              <Text style={styles.buttonText}> {this.state.option1 || 1}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={e => {
-                ans == this.state.option2
-                  ? this.randomGenerator(e)
-                  : this.wrongOption(e);
-              }}
-            >
-              <Text style={styles.buttonText}> {this.state.option2 || 3} </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </ScrollView>
-    );
+        </ScrollView>
+      );
+    } else {
+      return <GameOver />;
+    }
   }
 }
