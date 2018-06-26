@@ -21,6 +21,11 @@ export default {
     alignItems: 'center',
     paddingBottom: 20
   },
+  life: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
   button: {
     backgroundColor: '#fbf0e5',
     borderRadius: 3,

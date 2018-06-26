@@ -95,6 +95,29 @@ export default class Count extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
+          <View style={styles.life}>
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={'green'}
+            />
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={'green'}
+            />
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={'green'}
+            />
+          </View>
           <View style={styles.questionWrapper}>
             <View style={styles.question}>
               {obj.map((indexs, arrs) => {
