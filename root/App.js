@@ -15,6 +15,9 @@ import Intro from '../components/Intro';
 import Game from '../components/Game';
 import Add from '../components/Add';
 import Counting from '../components/Counting';
+import Currency from '../components/Currency';
+import Count from '../components/Count';
+import ShapeSelect from '../components/ShapeSelect';
 
 let screen = Dimensions.get('window');
 
@@ -131,6 +134,15 @@ let drawer = DrawerNavigator(
     },
     Count: {
       screen: Counting
+    },
+    Currency: {
+      screen: Currency
+    },
+    Shape: {
+      screen: ShapeSelect
+    },
+    Counts: {
+      screen: Count
     }
   },
   {

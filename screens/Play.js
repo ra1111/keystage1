@@ -11,11 +11,13 @@ export default class Play extends Component {
             <Game
               navigation={navigation}
               title="addition"
+              route="Add"
               des="some random addition"
             />
             <Game
               navigation={navigation}
               title="subtraction"
+              route="Subtract"
               des="some random addition"
             />
           </View>
@@ -23,6 +25,7 @@ export default class Play extends Component {
             <Game
               navigation={navigation}
               title="counting"
+              route="Counts"
               des="some random addition"
             />
             {/* <Game
@@ -35,6 +38,7 @@ export default class Play extends Component {
             <Game
               navigation={navigation}
               title="shapes"
+              route="Shape"
               des="square trap etc"
             />
             {/* <Game
@@ -47,9 +51,15 @@ export default class Play extends Component {
             <Game
               navigation={navigation}
               title="Reading "
+              route="Count"
               des="How to write 13 thirteen"
             />
-            <Game navigation={navigation} title="money" des="Use UK coins" />
+            <Game
+              navigation={navigation}
+              route="Currency"
+              title="money"
+              des="Use UK coins"
+            />
           </View>
         </View>
       </ScrollView>

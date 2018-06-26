@@ -12,18 +12,12 @@ import styles from './style';
 export default class MenuItem extends Component {
   render() {
     console.log(this.props, 'HERE');
-    const navigateAction = NavigationActions.navigate({
-      routeName: 'Intro',
-      params: {},
 
-      // navigate can have a nested navigate action that will be run inside the child router
-      action: NavigationActions.navigate({routeName: 'SubProfileRoute'})
-    });
     return (
       <TouchableOpacity
         style={styles.container}
         onPress={() => {
-          this.props.navigation.navigate('Intro', {
+          this.props.navigation.navigate(this.props.route, {
             title: this.props.title,
             des: this.props.des
           });
