@@ -51,6 +51,9 @@ export default class Currency extends Component {
   wrongOption() {
     console.log('Wrong Oprtion selected');
   }
+  componentWillMount() {
+    this.randomGenerator();
+  }
   randomGenerator() {
     let max = val.length;
     number1 = Math.floor(Math.random() * 10 + 29);

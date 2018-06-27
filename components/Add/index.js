@@ -11,12 +11,21 @@ import {
 import {Icon} from 'react-native-elements';
 import {NavigationActions} from 'react-navigation';
 import styles from './styles';
+import Life from '../Life';
+import GameOver from '../GameOver';
 var {width, height} = Dimensions.get('window');
 let number1 = 0,
   number2 = 0,
   ans = 0,
   option1 = 0,
   option2 = 0;
+let book1 = 'green',
+  book2 = 'green',
+  book3 = 'green';
+let k = 0;
+let questionNumber = 0;
+let correct = 5;
+let score = 0;
 export default class Add extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +38,23 @@ export default class Add extends Component {
     };
   }
   wrongOption(e) {
-    console.log(e.target);
+    if (k == 0) {
+      book1 = 'red';
+    }
+    if (k == 1) {
+      book2 = 'red';
+    }
+    if (k == 3) {
+      book3 = 'red';
+      questionNumber = 5;
+    }
+    k++;
+    score -= 2;
+    correct -= 1;
+    this.randomGenerator();
+  }
+  componentWillMount() {
+    this.randomGenerator();
   }
   randomGenerator() {
     number1 = Math.floor(Math.random() * 10);
@@ -72,68 +97,88 @@ export default class Add extends Component {
         option2: option1
       });
     }
+    questionNumber++;
+    score += 5;
   }
   render() {
-    return (
-      <View style={stylez.container}>
-        <View style={styles.container}>
-          <View style={styles.questionWrapper}>
-            <View style={styles.question}>
-              <Text style={styles.questionText}>{this.state.number2 || 1}</Text>
+    if (questionNumber !== 5) {
+      return (
+        <View style={stylez.container}>
+          <View style={styles.container}>
+            <Life book1={book1} book2={book2} book3={book3} />
+            <View style={styles.questionWrapper}>
+              <View style={styles.question}>
+                <Text style={styles.questionText}>
+                  {this.state.number2 || 1}
+                </Text>
+              </View>
+              <Icon
+                name={'ios-add'}
+                raised
+                type="ionicon"
+                size={28}
+                color={'orange'}
+              />
+              <View style={styles.question}>
+                <Text style={styles.questionText}>
+                  {this.state.number1 || 1}
+                </Text>
+              </View>
             </View>
-            <Icon
-              name={this.props.name || 'ios-remove'}
-              raised
-              type="ionicon"
-              size={28}
-              color={'orange'}
-            />
-            <View style={styles.question}>
-              <Text style={styles.questionText}>{this.state.number1 || 1}</Text>
+            <View style={styles.optionWrapper}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={e => {
+                  ans == this.state.ans
+                    ? this.randomGenerator(e)
+                    : this.wrongOption(e);
+                }}
+              >
+                <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={e => {
+                  ans == this.state.option1
+                    ? this.randomGenerator(e)
+                    : this.wrongOption(e);
+                }}
+              >
+                <Text style={styles.buttonText}>
+                  {' '}
+                  {this.state.option1 || 1}
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={e => {
+                  ans == this.state.option2
+                    ? this.randomGenerator(e)
+                    : this.wrongOption(e);
+                }}
+              >
+                <Text style={styles.buttonText}>
+                  {' '}
+                  {this.state.option2 || 3}{' '}
+                </Text>
+              </TouchableOpacity>
             </View>
-            <Icon
-              name={this.props.name || 'ios-add'}
-              raised
-              type="ionicon"
-              size={28}
-              color={'orange'}
-            />
-          </View>
-          <View style={styles.optionWrapper}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={e => {
-                ans == this.state.ans
-                  ? this.randomGenerator(e)
-                  : this.wrongOption(e);
-              }}
-            >
-              <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={e => {
-                ans == this.state.option1
-                  ? this.randomGenerator(e)
-                  : this.wrongOption(e);
-              }}
-            >
-              <Text style={styles.buttonText}> {this.state.option1 || 1}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={e => {
-                ans == this.state.option2
-                  ? this.randomGenerator(e)
-                  : this.wrongOption(e);
-              }}
-            >
-              <Text style={styles.buttonText}> {this.state.option2 || 3} </Text>
-            </TouchableOpacity>
           </View>
         </View>
-      </View>
-    );
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <GameOver
+            navigation={this.props.navigation}
+            correct={correct}
+            score={score}
+            won={k == 3 ? false : true}
+            route="Counts"
+          />
+        </View>
+      );
+    }
   }
 }
 const stylez = StyleSheet.create({

@@ -64,7 +64,7 @@ export default class ShapesSelect extends Component {
     let number = arr[0];
     let number1 = arr[1];
     let number2 = arr[2];
-    let random = Math.floor(Math.random() * 3);
+    let random = Math.floor((Math.random() + 2) * 1000) % 3;
     let ret = key[number].toString();
 
     ret = ret.substr('function '.length);
@@ -76,22 +76,21 @@ export default class ShapesSelect extends Component {
     ret1 = ret1.substr(0, ret1.indexOf('('));
     ret2 = ret2.substr('function '.length);
     ret2 = ret2.substr(0, ret2.indexOf('('));
-    console.log(key[number], ret, ret1, ret2);
-    if (random === 1) {
+    if (random === 0) {
       this.setState({
         number1: key[number],
         ans: ret,
         option1: ret1,
         option2: ret2
       });
-    } else if (random === 2) {
+    } else if (random === 1) {
       this.setState({
         number1: key[number],
         ans: ret1,
         option1: ret,
         option2: ret2
       });
-    } else if (random === 3) {
+    } else if (random === 2) {
       this.setState({
         number1: key[number],
         ans: ret2,

@@ -28,6 +28,9 @@ export default class Counting extends Component {
       option2: 0
     };
   }
+  componentWillMount() {
+    this.randomGenerator();
+  }
   randomGenerator() {
     number = Math.floor((Math.random() + 1) * 20);
     ans = converter.toWords(number);

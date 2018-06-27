@@ -56,6 +56,9 @@ export default class Count extends Component {
       option2: 0
     };
   }
+  componentWillMount() {
+    this.randomGenerator();
+  }
   randomGenerator() {
     obj = [];
     let max = arr.length;
