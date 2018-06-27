@@ -11,8 +11,6 @@ import {Icon} from 'react-native-elements';
 import styles from './style';
 export default class MenuItem extends Component {
   render() {
-    console.log(this.props, 'HERE');
-
     return (
       <TouchableOpacity
         style={styles.container}

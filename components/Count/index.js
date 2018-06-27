@@ -109,11 +109,11 @@ export default class Count extends Component {
       questionNumber = 5;
     }
     k++;
-    score = -2;
-    correct = -1;
+    score -= 2;
+    correct -= 1;
+    this.randomGenerator();
   }
   render() {
-    console.log(this.props);
     if (questionNumber !== 5) {
       return (
         <ScrollView>

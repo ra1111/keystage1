@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView
 } from 'react-native';
+import {Icon} from 'react-native-elements';
 import styles from './styles';
 import Triangle from '../Shapes/Traingle';
 import Circle from '../Shapes/Circle';
@@ -17,6 +18,7 @@ import Hexagon from '../Shapes/Hexagon';
 import Square from '../Shapes/Square';
 import Octagon from '../Shapes/Octagon';
 import Pentagon from '../Shapes/Pentagon';
+import GameOver from '../GameOver';
 let key = [
   Triangle,
   Circle,
@@ -29,7 +31,13 @@ let key = [
   Pentagon
 ];
 let ans = 'Triangle';
-
+let book1 = 'green',
+  book2 = 'green',
+  book3 = 'green';
+let k = 0;
+let questionNumber = 0;
+let correct = 5;
+let score = 0;
 export default class ShapesSelect extends Component {
   constructor(props) {
     super(props);
@@ -98,41 +106,93 @@ export default class ShapesSelect extends Component {
         option2: ret2
       });
     }
+    questionNumber++;
+    score += 5;
   }
   wrong() {
-    console.log('WRONG ANS SELECTED');
+    if (k == 0) {
+      book1 = 'red';
+    }
+    if (k == 1) {
+      book2 = 'red';
+    }
+    if (k == 3) {
+      book3 = 'red';
+      questionNumber = 5;
+    }
+    k++;
+    score -= 2;
+    correct -= 1;
+    this.options();
   }
   render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.questionWrapper}>{<this.state.number1 />}</View>
-        <View style={styles.optionContainer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              ans === this.state.option2 ? this.options() : this.wrong();
-            }}
-          >
-            <Text style={styles.buttonText}>{this.state.option2}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              ans === this.state.ans ? this.options() : this.wrong();
-            }}
-          >
-            <Text style={styles.buttonText}>{this.state.ans}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => {
-              ans === this.state.option1 ? this.options() : this.wrong();
-            }}
-          >
-            <Text style={styles.buttonText}>{this.state.option1}</Text>
-          </TouchableOpacity>
+    if (questionNumber !== 5) {
+      return (
+        <View style={styles.container}>
+          <View style={styles.life}>
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={book1}
+            />
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={book2}
+            />
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={book3}
+            />
+          </View>
+          <View style={styles.questionWrapper}>{<this.state.number1 />}</View>
+          <View style={styles.optionContainer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                ans === this.state.option2 ? this.options() : this.wrong();
+              }}
+            >
+              <Text style={styles.buttonText}>{this.state.option2}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                ans === this.state.ans ? this.options() : this.wrong();
+              }}
+            >
+              <Text style={styles.buttonText}>{this.state.ans}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                ans === this.state.option1 ? this.options() : this.wrong();
+              }}
+            >
+              <Text style={styles.buttonText}>{this.state.option1}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    );
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <GameOver
+            navigation={this.props.navigation}
+            correct={correct}
+            score={score}
+            won={k == 3 ? false : true}
+            route="Shape"
+          />
+        </View>
+      );
+    }
   }
 }

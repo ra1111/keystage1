@@ -31,6 +31,11 @@ export default {
     textAlign: 'center',
     alignSelf: 'center'
   },
+  life: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
+  },
   questionWrapper: {
     backgroundColor: '#fbf0e5',
     borderRadius: 3,
