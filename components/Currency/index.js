@@ -20,7 +20,8 @@ import TenPence from '../../Assets/Images/TenPence.png';
 import TwentyPence from '../../Assets/Images/TwentyPence.png';
 import TwoPence from '../../Assets/Images/TwoPence.png';
 import TwoPounds from '../../Assets/Images/TwoPounds.png';
-
+import GameOver from '../GameOver';
+import Life from '../Life';
 import styles from './styles';
 var {width, height} = Dimensions.get('window');
 let arr = [
@@ -36,7 +37,13 @@ let arr = [
 let ans = 0;
 //100 penies=1 pound
 let val = [0.5, 0.05, 0.01, 1, 0.1, 0.2, 0.02, 2.0];
-
+let book1 = 'green',
+  book2 = 'green',
+  book3 = 'green';
+let k = 0;
+let questionNumber = 0;
+let correct = 5;
+let score = 0;
 export default class Currency extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +56,20 @@ export default class Currency extends Component {
     };
   }
   wrongOption() {
-    console.log('Wrong Oprtion selected');
+    if (k == 0) {
+      book1 = 'red';
+    }
+    if (k == 1) {
+      book2 = 'red';
+    }
+    if (k == 3) {
+      book3 = 'red';
+      questionNumber = 5;
+    }
+    k++;
+    score -= 2;
+    correct -= 1;
+    this.randomGenerator();
   }
   componentWillMount() {
     this.randomGenerator();
@@ -102,77 +122,93 @@ export default class Currency extends Component {
         option2: option1
       });
     }
+    questionNumber++;
+    score += 5;
   }
   render() {
-    return (
-      <ScrollView>
-        <Image />
-        <View style={stylez.container}>
-          <View style={styles.container}>
-            <View style={styles.questionWrapper}>
-              <View style={styles.question}>
-                <Image
-                  style={styles.questionText}
-                  source={this.state.number2}
+    if (questionNumber !== 5) {
+      return (
+        <ScrollView>
+          <View style={stylez.container}>
+            <Life book1={book1} book2={book2} book3={book3} />
+            <View style={styles.container}>
+              <View style={styles.questionWrapper}>
+                <View style={styles.question}>
+                  <Image
+                    style={styles.questionText}
+                    source={this.state.number2}
+                  />
+                </View>
+                <Icon
+                  style={styles.Icon}
+                  name={this.props.name || 'ios-add'}
+                  raised
+                  type="ionicon"
+                  size={28}
+                  color={'orange'}
                 />
+                <View style={styles.question}>
+                  <Image
+                    style={styles.questionText}
+                    source={this.state.number1}
+                  />
+                </View>
               </View>
-              <Icon
-                style={styles.Icon}
-                name={this.props.name || 'ios-add'}
-                raised
-                type="ionicon"
-                size={28}
-                color={'orange'}
-              />
-              <View style={styles.question}>
-                <Image
-                  style={styles.questionText}
-                  source={this.state.number1}
-                />
+              <View style={styles.optionWrapper}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={e => {
+                    ans == this.state.ans
+                      ? this.randomGenerator(e)
+                      : this.wrongOption(e);
+                  }}
+                >
+                  <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={e => {
+                    ans == this.state.option1
+                      ? this.randomGenerator(e)
+                      : this.wrongOption(e);
+                  }}
+                >
+                  <Text style={styles.buttonText}>
+                    {' '}
+                    {this.state.option1 || 1}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={e => {
+                    ans == this.state.option2
+                      ? this.randomGenerator(e)
+                      : this.wrongOption(e);
+                  }}
+                >
+                  <Text style={styles.buttonText}>
+                    {' '}
+                    {this.state.option2 || 3}{' '}
+                  </Text>
+                </TouchableOpacity>
               </View>
-            </View>
-            <View style={styles.optionWrapper}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={e => {
-                  ans == this.state.ans
-                    ? this.randomGenerator(e)
-                    : this.wrongOption(e);
-                }}
-              >
-                <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={e => {
-                  ans == this.state.option1
-                    ? this.randomGenerator(e)
-                    : this.wrongOption(e);
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {' '}
-                  {this.state.option1 || 1}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={e => {
-                  ans == this.state.option2
-                    ? this.randomGenerator(e)
-                    : this.wrongOption(e);
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {' '}
-                  {this.state.option2 || 3}{' '}
-                </Text>
-              </TouchableOpacity>
             </View>
           </View>
+        </ScrollView>
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <GameOver
+            navigation={this.props.navigation}
+            correct={correct}
+            score={score}
+            won={k == 3 ? false : true}
+            route="Counts"
+          />
         </View>
-      </ScrollView>
-    );
+      );
+    }
   }
 }
 const stylez = StyleSheet.create({
