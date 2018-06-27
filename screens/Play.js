@@ -17,7 +17,7 @@ export default class Play extends Component {
             <Game
               navigation={navigation}
               title="subtraction"
-              route="Subtract"
+              route="Sub"
               des="some random addition"
             />
           </View>

@@ -14,6 +14,7 @@ import Contact from '../screens/Contact';
 import Intro from '../components/Intro';
 import Game from '../components/Game';
 import Add from '../components/Add';
+import Subtract from '../components/Subtract';
 import Counting from '../components/Counting';
 import Currency from '../components/Currency';
 import Count from '../components/Count';
@@ -143,6 +144,9 @@ let drawer = DrawerNavigator(
     },
     Counts: {
       screen: Count
+    },
+    Sub: {
+      screen: Subtract
     }
   },
   {
