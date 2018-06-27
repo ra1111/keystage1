@@ -157,8 +157,8 @@ let drawer = DrawerNavigator(
 );
 export default StackNavigator(
   {
-    Drawer: drawer,
-    Login: Login
+    Login: Login,
+    Drawer: drawer
   },
   {
     headerMode: 'none'
