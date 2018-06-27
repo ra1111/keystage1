@@ -41,7 +41,7 @@ export default class Counting extends Component {
     this.randomGenerator();
   }
   randomGenerator() {
-    number = Math.floor((Math.random() + 1) * 20);
+    number = Math.floor(Math.random() * 50) + Math.floor(Math.random() * 50);
     ans = converter.toWords(number);
     option1 = converter.toWords(number - 1);
     option2 = converter.toWords(number + 1);

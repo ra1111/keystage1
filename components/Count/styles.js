@@ -3,15 +3,13 @@ export default {
     backgroundColor: '#186da5',
     flexDirection: 'column',
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'space-between'
   },
   questionWrapper: {
-    // flexDirection: 'column',
     justifyContent: 'space-around',
     backgroundColor: '#fbf0e5',
     height: 140,
     borderRadius: 8,
-    marginTop: 40,
     alignSelf: 'center',
     marginHorizontal: 25,
     width: '100%'
@@ -22,7 +20,6 @@ export default {
     paddingBottom: 20
   },
   life: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },

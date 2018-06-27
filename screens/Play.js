@@ -28,24 +28,13 @@ export default class Play extends Component {
               route="Counts"
               des="some random addition"
             />
-            {/* <Game
-              navigation={navigation}
-              title="comparision"
-              des="some random addition"
-            /> */}
-            {/* </View> */}
-            {/* <View style={styles.wrapper}> */}
+
             <Game
               navigation={navigation}
               title="shapes"
               route="Shape"
               des="square trap etc"
             />
-            {/* <Game
-              navigation={navigation}
-              title="fraction"
-              des="using pics show eg"
-            /> */}
           </View>
           <View style={styles.wrapper}>
             <Game

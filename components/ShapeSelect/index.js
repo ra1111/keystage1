@@ -97,13 +97,6 @@ export default class ShapesSelect extends Component {
         option1: ret1,
         option2: ret
       });
-    } else {
-      this.setState({
-        number1: key[number],
-        ans: ret,
-        option1: ret1,
-        option2: ret2
-      });
     }
     questionNumber++;
     score += 5;

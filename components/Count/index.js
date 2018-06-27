@@ -119,83 +119,75 @@ export default class Count extends Component {
   render() {
     if (questionNumber !== 5) {
       return (
-        <ScrollView>
-          <View style={styles.container}>
-            <View style={styles.life}>
-              <Icon
-                name={'ios-book'}
-                raised
-                type="ionicon"
-                size={28}
-                color={book1}
-              />
-              <Icon
-                name={'ios-book'}
-                raised
-                type="ionicon"
-                size={28}
-                color={book2}
-              />
-              <Icon
-                name={'ios-book'}
-                raised
-                type="ionicon"
-                size={28}
-                color={book3}
-              />
+        <View style={styles.container}>
+          <View style={styles.life}>
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={book1}
+            />
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={book2}
+            />
+            <Icon
+              name={'ios-book'}
+              raised
+              type="ionicon"
+              size={28}
+              color={book3}
+            />
+          </View>
+          <View style={styles.questionWrapper}>
+            <View>
+              <Text style={styles.coin}>How many coins are there?</Text>
             </View>
-            <View style={styles.questionWrapper}>
-              <View>
-                <Text style={styles.coin}>How many coins are there?</Text>
-              </View>
-              <View style={styles.question}>
-                {obj.map((indexs, arrs) => {
-                  return (
-                    <Image source={arr[index]} style={styles.questionText} />
-                  );
-                })}
-              </View>
-            </View>
-            <View style={styles.optionWrapper}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={e => {
-                  ans == this.state.ans
-                    ? this.randomGenerator(e)
-                    : this.wrongOption(e);
-                }}
-              >
-                <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={e => {
-                  ans == this.state.option1
-                    ? this.randomGenerator(e)
-                    : this.wrongOption(e);
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {' '}
-                  {this.state.option1 || 1}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={e => {
-                  ans == this.state.option2
-                    ? this.randomGenerator(e)
-                    : this.wrongOption(e);
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {' '}
-                  {this.state.option2 || 3}{' '}
-                </Text>
-              </TouchableOpacity>
+            <View style={styles.question}>
+              {obj.map((indexs, arrs) => {
+                return (
+                  <Image source={arr[index]} style={styles.questionText} />
+                );
+              })}
             </View>
           </View>
-        </ScrollView>
+          <View style={styles.optionWrapper}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={e => {
+                ans == this.state.ans
+                  ? this.randomGenerator(e)
+                  : this.wrongOption(e);
+              }}
+            >
+              <Text style={styles.buttonText}>{this.state.ans || 2}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={e => {
+                ans == this.state.option1
+                  ? this.randomGenerator(e)
+                  : this.wrongOption(e);
+              }}
+            >
+              <Text style={styles.buttonText}> {this.state.option1 || 1}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={e => {
+                ans == this.state.option2
+                  ? this.randomGenerator(e)
+                  : this.wrongOption(e);
+              }}
+            >
+              <Text style={styles.buttonText}> {this.state.option2 || 3} </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       );
     } else {
       return (
