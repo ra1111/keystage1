@@ -1,59 +1,55 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
 import * as firebase from 'firebase';
 import {auth, database, provider} from '../config/firebase';
 import {GoogleSignin} from 'react-native-google-signin';
 
 export default class Login extends Component {
-  signInWithGoogle() {
-    // let provider = new firebase.auth.GoogleAuthProvider();
-    // console.log('Coming here', provider);
-    // firebase
-    //   .auth()
-    //   .signInWithPopup(provider)
-    //   .then(function(result) {
-    //     // This gives you a Google Access Token. You can use it to access the Google API.
-    //     var token = result.credential.accessToken;
-    //     // The signed-in user info.
-    //     var user = result.user;
-    //     console.log(user);
-    //     // ...
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //     // Handle Errors here.
-    //     var errorCode = error.code;
-    //     var errorMessage = error.message;
-    //     // The email of the user's account used.
-    //     var email = error.email;
-    //     // The firebase.auth.AuthCredential type that was used.
-    //     var credential = error.credential;
-    //     // ...
-    //   });
-    GoogleSignin.signIn()
-      .then(data => {
-        // Create a new Firebase credential with the token
-        const credential = firebase.auth.GoogleAuthProvider.credential(
-          data.idToken,
-          data.accessToken
-        );
-        console.log(firebase.auth().signInWithCredential(credential));
-        // Login with the credential
-        return firebase.auth().signInWithCredential(credential);
-      })
-      .then(user => {
-        // If you need to do anything with the user, do it here
-        // The user will be logged in automatically by the
-        // `onAuthStateChanged` listener we set up in App.js earlier
-      })
-      .catch(error => {
-        const {code, message} = error;
-        console.log(error);
-        // For details of error codes, see the docs
-        // The message contains the default Firebase string
-        // representation of the error
-      });
+  signInWithGoogle = async () => {
+    try {
+      const user = await GoogleSignin.signIn();
+    } catch (error) {
+      if (error.code === 'CANCELED') {
+        console.log('user cancelled');
+      }
+      console.log(error);
+    }
+  };
+  async componentDidMount() {
+    await this._configureGoogleSignIn();
+    await this._getCurrentUser();
   }
+  async _configureGoogleSignIn() {
+    await GoogleSignin.hasPlayServices({autoResolve: true});
+    const configPlatform = {
+      ...Platform.select({
+        ios: {
+          iosClientId:
+            '943701204118-0gqllr48e8i8jtejj9du0dru5lbse7dp.apps.googleusercontent.com'
+        },
+        android: {}
+      })
+    };
+
+    await GoogleSignin.configure({
+      ...configPlatform,
+      webClientId:
+        'com.googleusercontent.apps.922830836172-o3err4mm62odc7l9ncmb9n7vl2ccj3aj',
+      offlineAccess: false
+    });
+  }
+
+  async _getCurrentUser() {
+    try {
+      const user = await GoogleSignin.currentUserAsync();
+      this.setState({user, error: null});
+    } catch (error) {
+      this.setState({
+        error
+      });
+    }
+  }
+
   render() {
     console.log(auth, database, provider);
     return (
@@ -65,12 +61,6 @@ export default class Login extends Component {
         >
           <Text style={styles.title}>Login</Text>
         </TouchableOpacity>
-        {/* <GoogleSigninButton
-          style={{width: 48, height: 48}}
-          size={148}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={() => this._signIn.bind(this)}
-        /> */}
       </View>
     );
   }
