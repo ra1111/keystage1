@@ -16,8 +16,12 @@ export default class Profile extends Component {
         <View style={styles.profilePic}>
           <Image
             source={{
-              uri:
-                'https://facebook.github.io/react-native/docs/assets/favicon.png'
+              uri: this.props.pic
+            }}
+            style={{
+              height: 80,
+              width: 80,
+              borderRadius: 40
             }}
           />
         </View>

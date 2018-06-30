@@ -14,11 +14,12 @@ const data = {
 };
 export default class SideBar extends Component {
   render() {
+    let user = this.props.navigation.getParam('user', 'some title');
     const navigation = this.props.navigation;
     return (
       <ScrollView>
         <View>
-          <Profile />
+          <Profile text={user.name} pic={user.photo} />
           <View style={styles.container}>
             {data.menu.map((index, key) => (
               <MenuItem
