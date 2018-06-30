@@ -6,10 +6,40 @@ import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 export default class Login extends Component {
   signInWithGoogle = async () => {
     try {
+      let database = firebase.database();
       const user = await GoogleSignin.signIn();
-      if (user) {
-        this.props.navigation.navigate('Drawer', {user: user});
-      }
+
+      const credential = firebase.auth.GoogleAuthProvider.credential(
+        user.idToken,
+        user.accessToken
+      );
+      const currentUser = await firebase
+        .auth()
+        .signInAndRetrieveDataWithCredential(credential);
+
+      console.log(database.ref('users/' + currentUser.user.uid));
+      database
+        .ref('users/')
+        .child(currentUser.user.uid)
+        .once('value', function(snapshot) {
+          var exists = snapshot.val() !== null;
+          if (!exists) {
+            database.ref('users/' + currentUser.user.uid).set({
+              username: user.name,
+              email: user.email,
+              profile_picture: user.photo,
+              DailyGoals: 20,
+              CorrectAns: 0,
+              WrongAns: 0,
+              TotalAns: 0,
+              DialyCorrectAns: 0,
+              DailyWrongAns: 0,
+              DailyTotalAns: 0
+            });
+          }
+        });
+
+      this.props.navigation.navigate('Drawer', {user: user});
     } catch (error) {
       if (error.code === 'CANCELED') {
         console.log('user cancelled');
@@ -17,6 +47,18 @@ export default class Login extends Component {
       console.log(error);
     }
   };
+  componentWillMount() {
+    const config = {
+      apiKey: 'AIzaSyBdKsVYoAlzIAJgJCurjqdhSo_VQJwoMio',
+      authDomain: 'elitmus-daf04.firebaseapp.com',
+      databaseURL: 'https://elitmus-daf04.firebaseio.com',
+      projectId: 'elitmus-daf04',
+      storageBucket: 'elitmus-daf04.appspot.com',
+      messagingSenderId: '922830836172'
+    };
+
+    firebase.initializeApp(config);
+  }
   async componentDidMount() {
     await this._configureGoogleSignIn();
     await this._getCurrentUser();
@@ -49,7 +91,7 @@ export default class Login extends Component {
   async _getCurrentUser() {
     try {
       const user = await GoogleSignin.currentUserAsync();
-
+      console.log(user);
       if (user) {
         this.props.navigation.navigate('Drawer', {user: user});
       }
@@ -60,7 +102,6 @@ export default class Login extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <GoogleSigninButton
