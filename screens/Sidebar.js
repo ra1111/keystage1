@@ -15,6 +15,10 @@ const data = {
 export default class SideBar extends Component {
   render() {
     let user = this.props.navigation.getParam('user', 'some title');
+    let currentUser = this.props.navigation.getParam(
+      'currentUser',
+      'some title'
+    );
     const navigation = this.props.navigation;
     return (
       <ScrollView>
@@ -23,6 +27,7 @@ export default class SideBar extends Component {
           <View style={styles.container}>
             {data.menu.map((index, key) => (
               <MenuItem
+                currentUser={currentUser}
                 key={key}
                 navigation={navigation}
                 text={index.text}

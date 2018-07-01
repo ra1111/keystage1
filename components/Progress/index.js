@@ -17,7 +17,7 @@ export default class Progress extends Component {
       <View style={styles.container}>
         <View style={styles.progress}>
           <Text style={styles.header}>Progress</Text>
-          <Text style={styles.header}>Goals:120</Text>
+          <Text style={styles.header}>Goals:{this.props.goals}</Text>
         </View>
         <View style={styles.wrapper}>
           <View style={styles.completed}>
@@ -27,17 +27,17 @@ export default class Progress extends Component {
                 styleAttr="Horizontal"
                 color="#00FF00"
                 style={styles.bar}
-                progress={this.props.completed || 0.1}
+                progress={this.props.completed / this.props.goals}
                 indeterminate={false}
               />
             ) : (
               <ProgressViewIOS
                 color="#00FF00"
                 style={styles.bar}
-                progress={this.props.completed || 0.1}
+                progress={this.props.completed / this.props.goals}
               />
             )}
-            <Text style={styles.text}>{this.props.completed || 16}</Text>
+            <Text style={styles.text}>{this.props.completed}</Text>
           </View>
           <View style={styles.completed}>
             <Text style={styles.text}>OnGoing</Text>
@@ -46,17 +46,17 @@ export default class Progress extends Component {
                 style={styles.bar}
                 color="orange"
                 styleAttr="Horizontal"
-                progress={this.props.onGoing || 0.1}
+                progress={this.props.OnGoing / this.props.goals}
                 indeterminate={false}
               />
             ) : (
               <ProgressViewIOS
                 style={styles.bar}
                 color="orange"
-                progress={this.props.onGoing || 0.1}
+                progress={this.props.OnGoing / this.props.goals}
               />
             )}
-            <Text style={styles.text}>{this.props.onGoing || 100}</Text>
+            <Text style={styles.text}>{this.props.OnGoing}</Text>
           </View>
           <View style={styles.completed}>
             <Text style={styles.text}>Pending</Text>
@@ -65,17 +65,17 @@ export default class Progress extends Component {
                 style={styles.bar}
                 color="red"
                 styleAttr="Horizontal"
-                progress={this.props.pending || 0.1}
+                progress={this.props.pending / this.props.goals}
                 indeterminate={false}
               />
             ) : (
               <ProgressViewIOS
                 style={styles.bar}
                 color="red"
-                progress={this.props.pending || 0.1}
+                progress={this.props.pending / this.props.goals}
               />
             )}
-            <Text style={styles.text}>{this.props.Pending || 4}</Text>
+            <Text style={styles.text}>{this.props.Pending}</Text>
           </View>
         </View>
       </View>

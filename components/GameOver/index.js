@@ -8,10 +8,37 @@ import {
 } from 'react-native';
 import {NavigationActions} from 'react-navigation';
 import {Icon} from 'react-native-elements';
+import * as firebase from 'firebase';
 import styles from './styles';
 export default class GameOver extends Component {
+  componentWillMount() {
+    let user = firebase.auth().currentUser;
+    let database = firebase.database();
+    try {
+      database
+        .ref('users/' + user.uid)
+        .once('value')
+        .then(snapshot => {
+          let DailyTotalAns = snapshot.val().DailyTotalAns;
+          let TotalAns = snapshot.val().TotalAns;
+          let WrongAns = snapshot.val().WrongAns;
+          let DailyWrongAns = snapshot.val().DailyWrongAns;
+          DailyTotalAns += 5;
+          TotalAns += 5;
+          WrongAns += 5 - this.props.correct;
+          DailyWrongAns += 5 - this.props.correct;
+          database.ref('users/' + user.uid).update({
+            DailyTotalAns: DailyTotalAns,
+            TotalAns: TotalAns,
+            WrongAns: WrongAns,
+            DailyWrongAns: DailyWrongAns
+          });
+        });
+    } catch (ex) {
+      console.log(ex + 'exception');
+    }
+  }
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <View style={styles.score}>

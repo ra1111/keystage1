@@ -23,20 +23,22 @@ export default class Sucess extends Component {
             <Pie
               radius={60}
               innerRadius={45}
-              series={[60]}
+              series={[this.props.today]}
               colors={['#4AA4FF']}
               backgroundColor="#ddd"
             />
+            <Text>{this.props.today}%</Text>
           </View>
           <View style={styles.piewrapper}>
             <Text>Overall</Text>
             <Pie
               radius={60}
               innerRadius={45}
-              series={[60]}
+              series={[this.props.overall]}
               colors={['#4AA4FF']}
               backgroundColor="#ddd"
             />
+            <Text>{this.props.overall}%</Text>
           </View>
         </View>
         <View>

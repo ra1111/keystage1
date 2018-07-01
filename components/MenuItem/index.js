@@ -15,6 +15,10 @@ export default class MenuItem extends Component {
     }
   };
   render() {
+    let currentUser = this.props.navigation.getParam(
+      'currentUser',
+      'some title'
+    );
     const navigation = this.props.navigation;
     return (
       <TouchableOpacity
@@ -23,7 +27,8 @@ export default class MenuItem extends Component {
           this.props.text === 'Logout'
             ? this.signOut()
             : navigation.navigate(
-                this.props.text === 'Contact us' ? 'Contact' : this.props.text
+                this.props.text === 'Contact us' ? 'Contact' : this.props.text,
+                {currentUser: currentUser}
               );
         }}
       >

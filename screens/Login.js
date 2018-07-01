@@ -39,7 +39,10 @@ export default class Login extends Component {
           }
         });
 
-      this.props.navigation.navigate('Drawer', {user: user});
+      this.props.navigation.navigate('Drawer', {
+        user: user,
+        currentUser: currentUser
+      });
     } catch (error) {
       if (error.code === 'CANCELED') {
         console.log('user cancelled');
@@ -57,7 +60,9 @@ export default class Login extends Component {
       messagingSenderId: '922830836172'
     };
 
-    firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
   }
   async componentDidMount() {
     await this._configureGoogleSignIn();
@@ -91,9 +96,21 @@ export default class Login extends Component {
   async _getCurrentUser() {
     try {
       const user = await GoogleSignin.currentUserAsync();
+
+      const credential = firebase.auth.GoogleAuthProvider.credential(
+        user.idToken,
+        user.accessToken
+      );
+      const currentUser = await firebase
+        .auth()
+        .signInAndRetrieveDataWithCredential(credential);
+
       console.log(user);
       if (user) {
-        this.props.navigation.navigate('Drawer', {user: user});
+        this.props.navigation.navigate('Drawer', {
+          user: user,
+          currentUser: currentUser
+        });
       }
       // this.setState({user, error: null});
     } catch (error) {
