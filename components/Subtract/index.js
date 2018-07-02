@@ -37,6 +37,15 @@ export default class Add extends Component {
       option2: 0
     };
   }
+  play() {
+    book1 = 'green';
+    book2 = 'green';
+    book3 = 'green';
+    k = 0;
+    questionNumber = 0;
+    correct = 5;
+    score = 0;
+  }
   wrongOption(e) {
     if (k == 0) {
       book1 = 'red';

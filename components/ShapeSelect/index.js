@@ -48,6 +48,16 @@ export default class ShapesSelect extends Component {
       option2: 'Circle'
     };
   }
+  play() {
+    ans = 'Triangle';
+    book1 = 'green';
+    book2 = 'green';
+    book3 = 'green';
+    k = 0;
+    questionNumber = 0;
+    correct = 5;
+    score = 0;
+  }
   options() {
     let arr = [];
     let k = 0;

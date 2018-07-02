@@ -74,6 +74,16 @@ export default class Currency extends Component {
   componentWillMount() {
     this.randomGenerator();
   }
+  play() {
+    book1 = 'green';
+    book2 = 'green';
+    book3 = 'green';
+    k = 0;
+    questionNumber = 0;
+    correct = 5;
+    score = 0;
+    this.randomGenerator();
+  }
   randomGenerator() {
     let max = val.length;
     number1 = Math.floor(Math.random() * 10 + 29);

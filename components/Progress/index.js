@@ -65,14 +65,14 @@ export default class Progress extends Component {
                 style={styles.bar}
                 color="red"
                 styleAttr="Horizontal"
-                progress={this.props.pending / this.props.goals}
+                progress={this.props.Pending / this.props.goals}
                 indeterminate={false}
               />
             ) : (
               <ProgressViewIOS
                 style={styles.bar}
                 color="red"
-                progress={this.props.pending / this.props.goals}
+                progress={this.props.Pending / this.props.goals}
               />
             )}
             <Text style={styles.text}>{this.props.Pending}</Text>

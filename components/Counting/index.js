@@ -40,6 +40,16 @@ export default class Counting extends Component {
   componentWillMount() {
     this.randomGenerator();
   }
+  play() {
+    questionNumber = 0;
+    correct = 5;
+    score = 0;
+    ans = 0;
+    book1 = 'green';
+    book2 = 'green';
+    book3 = 'green';
+    this.randomGenerator();
+  }
   randomGenerator() {
     number = Math.floor(Math.random() * 50) + Math.floor(Math.random() * 50);
     ans = converter.toWords(number);

@@ -53,6 +53,28 @@ export default class Add extends Component {
     correct -= 1;
     this.randomGenerator();
   }
+  play() {
+    k = 0;
+    correct = 5;
+    score = 0;
+    questionNumber = 0;
+    this.setState({
+      number1: 0,
+      number2: 0,
+      ans: 0,
+      option1: 0,
+      option2: 0
+    });
+    book1 = 'green';
+    book2 = 'green';
+    book3 = 'green';
+    number1 = 0;
+    number2 = 0;
+    ans = 0;
+    option1 = 0;
+    option2 = 0;
+    this.randomGenerator();
+  }
   componentWillMount() {
     this.randomGenerator();
   }
@@ -175,6 +197,9 @@ export default class Add extends Component {
             score={score}
             won={k == 3 ? false : true}
             route="Counts"
+            Play={() => {
+              this.play();
+            }}
           />
         </View>
       );
