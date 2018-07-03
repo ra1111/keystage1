@@ -6,24 +6,28 @@ export default {
     justifyContent: 'center'
   },
   score: {
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 40,
     flex: 1
   },
   border: {
     height: 2,
-    width: '100%',
-    backgroundColor: 'black'
+    width: '75%',
+    alignSelf: 'center',
+    backgroundColor: 'white'
   },
   stats: {
     justifyContent: 'space-around',
     flexDirection: 'row',
     flex: 1
   },
+  button: {
+    backgroundColor: 'transparent'
+  },
   statsContainer: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 40
   },
@@ -38,11 +42,32 @@ export default {
     elevation: 6,
     alignItems: 'center'
   },
+  title: {
+    fontSize: 18,
+    color: 'white'
+  },
+  scoreText: {
+    fontSize: 18,
+    color: 'white',
+    fontWeight: '700'
+  },
+  oops: {
+    fontSize: 18,
+    color: 'white'
+  },
   buttonText: {
     color: 'blue',
     textAlign: 'center',
     alignSelf: 'center',
     paddingHorizontal: 10,
     paddingVertical: 8
+  },
+  buttonText1: {
+    color: 'white',
+    textAlign: 'center',
+    alignSelf: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderColor: 'blue'
   }
 };

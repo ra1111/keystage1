@@ -42,9 +42,9 @@ export default class GameOver extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.score}>
-          <Text>SCORE</Text>
-          <Text>{this.props.score || 0}</Text>
-          <Text>
+          <Text style={styles.title}>SCORE</Text>
+          <Text style={styles.scoreText}>{this.props.score || 0}</Text>
+          <Text style={styles.oops}>
             {this.props.won ? 'Congrats!Game Won' : 'Oops!Game Lost Try Again'}
           </Text>
 
@@ -52,25 +52,31 @@ export default class GameOver extends Component {
         </View>
         <View style={styles.statsContainer}>
           <View style={styles.stats}>
-            <Text>Correct:</Text>
-            <Text>{this.props.correct || 0}</Text>
+            <Icon
+              name="ios-checkmark-circle"
+              type="ionicon"
+              color="white"
+              size={28}
+            />
+            <Text style={styles.oops}>Correct:</Text>
+            <Text style={styles.oops}>{this.props.correct || 0}</Text>
           </View>
           <View style={styles.stats}>
-            <Text>Duration:</Text>
-            <Text>{this.props.duration || 0}</Text>
+            <Icon name="ios-timer" type="ionicon" color="white" size={28} />
+            <Text style={styles.oops}>Duration:</Text>
+            <Text style={styles.oops}> {this.props.duration || 0}</Text>
           </View>
-
-          <View style={styles.border} />
         </View>
+        <View style={styles.border} />
         <View style={styles.stats}>
           <TouchableOpacity
-            style={styles.button}
+            style={styles.button1}
             onPress={() => {
               this.props.Play();
               this.props.navigation.navigate('Home');
             }}
           >
-            <Text style={styles.buttonText}>EXIT</Text>
+            <Text style={styles.buttonText1}>EXIT</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}

@@ -28,7 +28,7 @@ export default class Login extends Component {
               username: user.name,
               email: user.email,
               profile_picture: user.photo,
-              DailyGoals: 20,
+              DailyGoals: 100,
               CorrectAns: 0,
               WrongAns: 0,
               TotalAns: 0,

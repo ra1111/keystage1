@@ -35,6 +35,13 @@ export default class Home extends Component {
             TotalAns: snapshot.val().TotalAns,
             WrongAns: snapshot.val().WrongAns
           });
+          if (this.state.DailyGoals <= this.state.DailyTotalAns) {
+            this.setState({DailyTotalAns: 0, DailyWrongAns: 0});
+            database.ref('users/' + currentUser.user.uid).update({
+              DailyTotalAns: 0,
+              DailyWrongAns: 0
+            });
+          }
         });
     } catch (ex) {
       console.log('exception ', ex);
