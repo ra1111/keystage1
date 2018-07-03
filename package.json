@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "firebase": "^5.1.0",
+    "mathjs": "^5.0.1",
     "number-to-words": "^1.2.3",
     "pretty-format": "^23.2.0",
     "react": "16.3.1",

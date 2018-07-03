@@ -18,15 +18,16 @@ export default class MenuItem extends Component {
           this.props.navigation.navigate(this.props.route, {
             title: this.props.title,
             des: this.props.des,
+
             navigation: this.props.navigation
           });
         }}
       >
-        <Image
-          source={{
-            uri:
-              'https://facebook.github.io/react-native/docs/assets/favicon.png'
-          }}
+        <Icon
+          type="ionicon"
+          name={this.props.icon}
+          raised
+          color="orange"
           style={styles.image}
         />
         <Text style={styles.title}>{this.props.title || 'hi'}</Text>

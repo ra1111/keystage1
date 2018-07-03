@@ -66,6 +66,7 @@ export default class GameOver extends Component {
           <TouchableOpacity
             style={styles.button}
             onPress={() => {
+              this.props.Play();
               this.props.navigation.navigate('Home');
             }}
           >

@@ -19,6 +19,8 @@ import Counting from '../components/Counting';
 import Currency from '../components/Currency';
 import Count from '../components/Count';
 import ShapeSelect from '../components/ShapeSelect';
+import Multiplication from '../components/Multiplication';
+import Fractions from '../components/Fractions';
 
 let screen = Dimensions.get('window');
 
@@ -147,6 +149,12 @@ let drawer = DrawerNavigator(
     },
     Sub: {
       screen: Subtract
+    },
+    Frac: {
+      screen: Fractions
+    },
+    Mult: {
+      screen: Multiplication
     }
   },
   {
