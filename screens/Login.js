@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
 import * as firebase from 'firebase';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
-
+let id=  "922830836172-7gkn82g7osq8jcjq0e0u4ble2vbsqthq.apps.googleusercontent.com";
 export default class Login extends Component {
   signInWithGoogle = async () => {
     try {
@@ -47,7 +47,7 @@ export default class Login extends Component {
       if (error.code === 'CANCELED') {
         console.log('user cancelled');
       }
-      console.log(error);
+      console.log(error,id);
     }
   };
   componentWillMount() {
@@ -76,18 +76,14 @@ export default class Login extends Component {
           iosClientId:
             '943701204118-0gqllr48e8i8jtejj9du0dru5lbse7dp.apps.googleusercontent.com'
         },
-        android: {
-          // androidClientId:
-          //   '922830836172-902poqs0scrvcn772q40b7jr66ci3030.apps.googleusercontent.com'
-        }
       })
     };
 
     await GoogleSignin.configure({
       ...configPlatform,
 
-      webClientId:
-        '922830836172-7gkn82g7osq8jcjq0e0u4ble2vbsqthq.apps.googleusercontent.com',
+      webClientId:id,
+  
 
       offlineAccess: false
     });
