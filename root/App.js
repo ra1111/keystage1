@@ -8,7 +8,7 @@ import Home from '../screens/Home';
 import MyCourse from '../screens/MyCourse';
 import Login from '../screens/Login';
 import Play from '../screens/Play';
-import Share from '../screens/Share';
+import Shares from '../screens/Share';
 import Sidebar from '../screens/Sidebar';
 import Contact from '../screens/Contact';
 import Intro from '../components/Intro';
@@ -92,7 +92,7 @@ const stack = StackNavigator(
 
 const ShareStack = StackNavigator({
   Share: {
-    screen: Share,
+    screen: Shares,
     navigationOptions: ({navigation}) => ({
       title: 'Share',
       headerLeft: (
