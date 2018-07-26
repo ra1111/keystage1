@@ -2,7 +2,8 @@ export default {
   container: {
     backgroundColor: '#186da5',
     flexDirection: 'column',
-    flex: 1,
+    height:'100%',
+    width:'100%',
     justifyContent: 'space-between'
   },
   questionWrapper: {
@@ -27,7 +28,7 @@ export default {
     borderRadius: 3,
     height: 50,
     width: '50%',
-    marginTop: 80,
+    marginTop: 60,
     shadowColor: 'rgba(0,0,0, .4)',
     shadowOffset: {height: 1, width: 1},
     shadowOpacity: 1,

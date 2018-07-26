@@ -61,11 +61,6 @@ export default class GameOver extends Component {
             <Text style={styles.oops}>Correct:</Text>
             <Text style={styles.oops}>{this.props.correct || 0}</Text>
           </View>
-          <View style={styles.stats}>
-            <Icon name="ios-timer" type="ionicon" color="white" size={28} />
-            <Text style={styles.oops}>Duration:</Text>
-            <Text style={styles.oops}> {this.props.duration || 0}</Text>
-          </View>
         </View>
         <View style={styles.border} />
         <View style={styles.stats}>

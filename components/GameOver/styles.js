@@ -13,14 +13,16 @@ export default {
   },
   border: {
     height: 2,
-    width: '75%',
+    width: '90%',
     alignSelf: 'center',
+    marginVertical:40,
     backgroundColor: 'white'
   },
   stats: {
     justifyContent: 'space-around',
     flexDirection: 'row',
-    flex: 1
+    flex: 1,
+    alignItems:'center'
   },
   button: {
     backgroundColor: 'transparent'
@@ -42,32 +44,46 @@ export default {
     elevation: 6,
     alignItems: 'center'
   },
+  button1: {
+    backgroundColor: '#14D41A',
+    borderRadius: 3,
+    marginBottom: 100,
+    marginTop: 20,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 10},
+    shadowRadius: 1,
+    elevation: 6,
+    alignItems: 'center'
+  },
   title: {
     fontSize: 18,
-    color: 'white'
+    color: 'white',
+    marginVertical:30,
   },
   scoreText: {
     fontSize: 18,
     color: 'white',
-    fontWeight: '700'
+    fontWeight: '700',
+    marginVertical:10,
   },
   oops: {
     fontSize: 18,
-    color: 'white'
+    color: 'white',
+    marginVertical:20
   },
   buttonText: {
-    color: 'blue',
+    color: '#14D41A',
     textAlign: 'center',
     alignSelf: 'center',
-    paddingHorizontal: 10,
-    paddingVertical: 8
+    paddingHorizontal: 20,
+    paddingVertical: 18
   },
   buttonText1: {
     color: 'white',
     textAlign: 'center',
     alignSelf: 'center',
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+    paddingHorizontal: 20,
+    paddingVertical: 18,
     borderColor: 'blue'
   }
 };

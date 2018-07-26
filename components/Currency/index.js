@@ -140,8 +140,9 @@ export default class Currency extends Component {
       return (
         <ScrollView>
           <View style={stylez.container}>
-            <Life book1={book1} book2={book2} book3={book3} />
+           
             <View style={styles.container}>
+            <Life book1={book1} book2={book2} book3={book3} />
               <View style={styles.questionWrapper}>
                 <View style={styles.question}>
                   <Image
