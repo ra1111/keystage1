@@ -189,6 +189,9 @@ export default class Add extends Component {
             navigation={this.props.navigation}
             correct={correct}
             score={score}
+            Play={() => {
+              this.play();
+            }}
             won={k == 3 ? false : true}
             route="Counts"
           />

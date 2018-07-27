@@ -216,6 +216,9 @@ export default class Currency extends Component {
             score={score}
             won={k == 3 ? false : true}
             route="Counts"
+            Play={() => {
+              this.play();
+            }}
           />
         </View>
       );

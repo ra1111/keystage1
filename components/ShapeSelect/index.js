@@ -190,6 +190,9 @@ export default class ShapesSelect extends Component {
             navigation={this.props.navigation}
             correct={correct}
             score={score}
+            Play={() => {
+              this.play();
+            }}
             won={k == 3 ? false : true}
             route="Shape"
           />
