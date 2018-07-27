@@ -108,7 +108,7 @@ export default class Counting extends Component {
     this.randomGenerator();
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3) {
       return (
         <View style={stylez.container}>
           <View style={styles.container}>

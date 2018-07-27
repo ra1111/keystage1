@@ -117,7 +117,7 @@ export default class Add extends Component {
     score += 5;
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3) {
       return (
         <View style={stylez.container}>
           <View style={styles.container}>

@@ -136,7 +136,7 @@ export default class Currency extends Component {
     score += 5;
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3) {
       return (
         <ScrollView>
           <View style={stylez.container}>

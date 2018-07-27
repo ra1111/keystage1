@@ -9,10 +9,12 @@ import {
   Image
 } from 'react-native';
 import {Icon} from 'react-native-elements';
+
 import {NavigationActions} from 'react-navigation';
 import styles from './styles';
 import Life from '../Life';
 import GameOver from '../GameOver';
+import Back from '../../Assets/Images/back.jpg';
 var {width, height} = Dimensions.get('window');
 let number1 = 0,
   number2 = 0,
@@ -123,9 +125,9 @@ export default class Add extends Component {
     score += 5;
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3) {
       return (
-        <View style={stylez.container}>
+        <ImageBackground style={stylez.container} resizeMode='cover' source ={Back}>
           <View style={styles.container}>
             <Life book1={book1} book2={book2} book3={book3} />
             <View style={styles.questionWrapper}>
@@ -186,7 +188,7 @@ export default class Add extends Component {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </ImageBackground>
       );
     } else {
       return (

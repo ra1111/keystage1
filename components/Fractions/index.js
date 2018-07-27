@@ -128,7 +128,7 @@ export default class Fractions extends Component {
     this.randomGenerator();
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3)  {
       return (
         <View style={styles.container}>
           <Life book1={book1} book2={book2} book3={book3} />

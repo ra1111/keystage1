@@ -1,7 +1,7 @@
 export default {
   container: {
   
-    backgroundColor: '#186da5',
+    backgroundColor: 'transparent',
     flexDirection: 'column',
     flex:1,
     justifyContent: 'space-between'

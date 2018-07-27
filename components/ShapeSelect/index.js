@@ -128,7 +128,7 @@ export default class ShapesSelect extends Component {
     this.options();
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3) {
       return (
         <View style={styles.container}>
           <View style={styles.life}>

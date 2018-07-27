@@ -19,8 +19,11 @@ import TenPence from '../../Assets/Images/TenPence.png';
 import TwentyPence from '../../Assets/Images/TwentyPence.png';
 import TwoPence from '../../Assets/Images/TwoPence.png';
 import TwoPounds from '../../Assets/Images/TwoPounds.png';
+import Candy from '../../Assets/Images/candy.png';
+import Candy1 from '../../Assets/Images/candy1.png';
 import styles from './styles';
 import GameOver from '../GameOver';
+import Back from '../../Assets/Images/back.jpg';
 var {width, height} = Dimensions.get('window');
 let number1 = 0,
   number2 = 0,
@@ -30,14 +33,8 @@ let number1 = 0,
   score = 0;
 let obj = [];
 let arr = [
-  FiftyPence,
-  FivePence,
-  OnePenny,
-  OnePound,
-  TenPence,
-  TwentyPence,
-  TwoPence,
-  TwoPounds
+Candy,
+Candy1
 ];
 let index;
 let book1 = 'green',
@@ -131,9 +128,9 @@ export default class Count extends Component {
     this.randomGenerator();
   }
   render() {
-    if (questionNumber !== 5) {
+    if (questionNumber !== 5 && k!==3) {
       return (
-        <View style={styles.container}>
+        <ImageBackground style={stylez.container} resizeMode='cover' source ={Back}>
           <View style={styles.life}>
             <Icon
               name={'ios-book'}
@@ -159,7 +156,7 @@ export default class Count extends Component {
           </View>
           <View style={styles.questionWrapper}>
             <View>
-              <Text style={styles.coin}>How many coins are there?</Text>
+              <Text style={styles.coin}>How many candies are there?</Text>
             </View>
             <View style={styles.question}>
               {obj.map((indexs, arrs) => {
@@ -201,7 +198,7 @@ export default class Count extends Component {
               <Text style={styles.buttonText}> {this.state.option2 || 3} </Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ImageBackground>
       );
     } else {
       return (
