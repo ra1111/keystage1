@@ -21,6 +21,7 @@ import TwentyPence from '../../Assets/Images/TwentyPence.png';
 import TwoPence from '../../Assets/Images/TwoPence.png';
 import TwoPounds from '../../Assets/Images/TwoPounds.png';
 import GameOver from '../GameOver';
+import Back from '../../Assets/Images/back.jpg'
 import Life from '../Life';
 import styles from './styles';
 var {width, height} = Dimensions.get('window');
@@ -139,7 +140,7 @@ export default class Currency extends Component {
     if (questionNumber !== 5 && k!==3) {
       return (
         <ScrollView>
-          <View style={stylez.container}>
+          <ImageBackground style={stylez.container} source={Back}>
            
             <View style={styles.container}>
             <Life book1={book1} book2={book2} book3={book3} />
@@ -204,7 +205,7 @@ export default class Currency extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-          </View>
+          </ImageBackground>
         </ScrollView>
       );
     } else {

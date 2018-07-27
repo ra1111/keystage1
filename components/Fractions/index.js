@@ -21,6 +21,7 @@ import TwoPounds from '../../Assets/Images/TwoPounds.png';
 import styles from './styles';
 import Life from '../Life';
 import GameOver from '../GameOver';
+import Back from '../../Assets/Images/back.jpg';
 
 let book1 = 'green',
   book2 = 'green',
@@ -130,7 +131,7 @@ export default class Fractions extends Component {
   render() {
     if (questionNumber !== 5 && k!==3)  {
       return (
-        <View style={styles.container}>
+        <ImageBackground source={Back} style={styles.container}>
           <Life book1={book1} book2={book2} book3={book3} />
           <View style={styles.questionWrapper}>
             <View style={styles.question}>
@@ -181,7 +182,7 @@ export default class Fractions extends Component {
               <Text style={styles.buttonText}> {this.state.option2 || 3} </Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ImageBackground>
       );
     } else {
       return (

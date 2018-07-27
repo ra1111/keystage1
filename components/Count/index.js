@@ -130,7 +130,7 @@ export default class Count extends Component {
   render() {
     if (questionNumber !== 5 && k!==3) {
       return (
-        <ImageBackground style={stylez.container} resizeMode='cover' source ={Back}>
+        <ImageBackground style={styles.container} resizeMode='cover' source ={Back}>
           <View style={styles.life}>
             <Icon
               name={'ios-book'}

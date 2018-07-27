@@ -1,6 +1,6 @@
 export default {
   container: {
-    backgroundColor: '#186da5',
+    backgroundColor: 'transparent',
     flexDirection: 'column',
     height:'100%',
     width:'100%',

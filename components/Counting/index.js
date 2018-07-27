@@ -14,6 +14,7 @@ import {NavigationActions} from 'react-navigation';
 import styles from './styles';
 import GameOver from '../GameOver';
 import Life from '../Life';
+import Back from '../../Assets/Images/back.jpg';
 var {width, height} = Dimensions.get('window');
 let number,
   option1,
@@ -110,7 +111,7 @@ export default class Counting extends Component {
   render() {
     if (questionNumber !== 5 && k!==3) {
       return (
-        <View style={stylez.container}>
+        <ImageBackground style={stylez.container} source={Back}>
           <View style={styles.container}>
             <Life book1={book1} book2={book2} book3={book3} />
             <View style={styles.questionWrapper}>
@@ -159,7 +160,7 @@ export default class Counting extends Component {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </ImageBackground>
       );
     } else {
       return (

@@ -19,6 +19,7 @@ import Square from '../Shapes/Square';
 import Octagon from '../Shapes/Octagon';
 import Pentagon from '../Shapes/Pentagon';
 import GameOver from '../GameOver';
+import Back from '../../Assets/Images/back.jpg';
 let key = [
   Triangle,
   Circle,
@@ -130,7 +131,7 @@ export default class ShapesSelect extends Component {
   render() {
     if (questionNumber !== 5 && k!==3) {
       return (
-        <View style={styles.container}>
+        <ImageBackground source={Back} style={styles.container}>
           <View style={styles.life}>
             <Icon
               name={'ios-book'}
@@ -181,7 +182,7 @@ export default class ShapesSelect extends Component {
               <Text style={styles.buttonText}>{this.state.option1}</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ImageBackground>
       );
     } else {
       return (
