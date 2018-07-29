@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity, Platform} from 'react-native';
+import {StyleSheet, Text, View, Image, Platform} from 'react-native';
 import * as firebase from 'firebase';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
-
+import Icon from '../Assets/Images/icon.png';
 export default class Login extends Component {
   signInWithGoogle = async () => {
     try {
@@ -121,13 +121,13 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
+      <Image source={Icon} style={styles.icon} />
         <GoogleSigninButton
-          style={{width: 212, height: 48}}
+          style={{width: 212, height: 48,marginBottom:120}}
           //size={GoogleSigninButton.Size.Standard}
           // color={GoogleSigninButton.Color.Auto}
           onPress={() => this.signInWithGoogle()}
         />
-        <Text style={styles.title}>Login</Text>
       </View>
     );
   }
@@ -135,7 +135,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'
   },
@@ -143,6 +143,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10
+  }
+  ,
+  icon:{
+    width:200,
+    height:200,
+    marginTop:120
+ 
   }
 });
 Login.navigationOptions = {

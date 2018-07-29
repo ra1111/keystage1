@@ -57,7 +57,7 @@ export default class Home extends Component {
             Pending={this.state.DailyGoals - this.state.DailyTotalAns}
             OnGoing={0}
           />
-          <Test />
+          {/* <Test /> */}
           <Sucess
             today={
               (this.state.DailyTotalAns - this.state.DailyWrongAns) *
