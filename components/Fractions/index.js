@@ -132,7 +132,7 @@ export default class Fractions extends Component {
     if (questionNumber !== 5 && k!==3)  {
       return (
         <ImageBackground source={Back} style={styles.container}>
-          <Life book1={book1} book2={book2} book3={book3} />
+          <Life book1={book1} book2={book2} book3={book3}  navigation={this.props.navigation} />
           <View style={styles.questionWrapper}>
             <View style={styles.question}>
               {obj.map((indexs, arrs) => {

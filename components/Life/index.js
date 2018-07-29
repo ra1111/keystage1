@@ -16,6 +16,15 @@ import styles from './style';
 export default class Life extends Component {
   render() {
     return (
+      <View style={styles.container}> 
+      <TouchableOpacity onPress={()=>this.props.navigation.navigate('Home')}> 
+        <Icon
+        name={'ios-arrow-back'}
+        raised
+        type="ionicon"
+        size={28}
+        />
+      </TouchableOpacity>
       <View style={styles.life}>
         <Icon
           name={'ios-book'}
@@ -38,6 +47,7 @@ export default class Life extends Component {
           size={28}
           color={this.props.book3}
         />
+      </View>
       </View>
     );
   }

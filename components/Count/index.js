@@ -22,6 +22,7 @@ import TwoPounds from '../../Assets/Images/TwoPounds.png';
 import Candy from '../../Assets/Images/candy.png';
 import Candy1 from '../../Assets/Images/candy1.png';
 import styles from './styles';
+import Life from '../Life';
 import GameOver from '../GameOver';
 import Back from '../../Assets/Images/back.jpg';
 var {width, height} = Dimensions.get('window');
@@ -131,29 +132,7 @@ export default class Count extends Component {
     if (questionNumber !== 5 && k!==3) {
       return (
         <ImageBackground style={styles.container} resizeMode='cover' source ={Back}>
-          <View style={styles.life}>
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book1}
-            />
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book2}
-            />
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book3}
-            />
-          </View>
+              <Life book1={book1} book2={book2} book3={book3}  navigation={this.props.navigation} />
           <View style={styles.questionWrapper}>
             <View>
               <Text style={styles.coin}>How many candies are there?</Text>

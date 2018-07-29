@@ -129,7 +129,7 @@ export default class Add extends Component {
       return (
         <ImageBackground style={stylez.container} resizeMode='cover' source ={Back}>
           <View style={styles.container}>
-            <Life book1={book1} book2={book2} book3={book3} />
+            <Life book1={book1} book2={book2} book3={book3}  navigation={this.props.navigation} />
             <View style={styles.questionWrapper}>
               <View style={styles.question}>
                 <Text style={styles.questionText}>

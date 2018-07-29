@@ -131,7 +131,7 @@ export default class Multiplication extends Component {
       return (
         <ImageBackground source={Back} style={stylez.container}>
           <View style={styles.container}>
-            <Life book1={book1} book2={book2} book3={book3} />
+            <Life book1={book1} book2={book2} book3={book3}    navigation={this.props.navigation}/>
             <View style={styles.questionWrapper}>
               <View style={styles.question}>
                 <Text style={styles.questionText}>

@@ -17,6 +17,7 @@ import Parallelogram from '../Shapes/Parllelogram';
 import Hexagon from '../Shapes/Hexagon';
 import Square from '../Shapes/Square';
 import Octagon from '../Shapes/Octagon';
+import Life from '../Life';
 import Pentagon from '../Shapes/Pentagon';
 import GameOver from '../GameOver';
 import Back from '../../Assets/Images/back.jpg';
@@ -132,29 +133,7 @@ export default class ShapesSelect extends Component {
     if (questionNumber !== 5 && k!==3) {
       return (
         <ImageBackground source={Back} style={styles.container}>
-          <View style={styles.life}>
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book1}
-            />
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book2}
-            />
-            <Icon
-              name={'ios-book'}
-              raised
-              type="ionicon"
-              size={28}
-              color={book3}
-            />
-          </View>
+            <Life book1={book1} book2={book2} book3={book3}    navigation={this.props.navigation}/>
           <View style={styles.questionWrapper}>{<this.state.number1 />}</View>
           <View style={styles.optionContainer}>
             <TouchableOpacity
