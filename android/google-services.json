@@ -66,19 +66,35 @@
       },
       "oauth_client": [
         {
-          "client_id": "922830836172-tt3295b3d6qtc2b7rvko69qlgj093io5.apps.googleusercontent.com",
+          "client_id": "922830836172-d82uk1ncvnmdkkac1d5vuf15tnslge5t.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.keystage1",
-            "certificate_hash": "fab6560d017b74207ae451fd60f1a302a65f4ad7"
+            "certificate_hash": "6ff79f6be5c7be918f2f8cc53db27626cc1e3f1e"
           }
         },
         {
-          "client_id": "922830836172-902poqs0scrvcn772q40b7jr66ci3030.apps.googleusercontent.com",
+          "client_id": "922830836172-3tu5lp5pblepo1u3a38he1q6kmcanq0v.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.keystage1",
-            "certificate_hash": "b8d953e94a877050cf4a04337ccb39f1579c3735"
+            "certificate_hash": "044b49b0369953b14b852a15e0e5b2a042219b87"
+          }
+        },
+        {
+          "client_id": "922830836172-bb03dq6srvp4ui1j7po3mipg7mlug7jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.keystage1",
+            "certificate_hash": "4229f530f63266bdf17d64b44594005bc2039907"
+          }
+        },
+        {
+          "client_id": "922830836172-e0kkcsfkbh3c1al5um057ctq4olnrmvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.keystage1",
+            "certificate_hash": "f0fcd2e4e2cb37da6aae16f7b1358e33e7e86bb1"
           }
         },
         {

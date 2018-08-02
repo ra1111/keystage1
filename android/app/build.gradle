@@ -101,19 +101,19 @@ android {
         applicationId "com.keystage1"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
     }
     signingConfigs {
-        // release {
-        //     storeFile file("my-release-key.keystore")
-        //     storePassword "goldtree9"
-        //     keyAlias "my-key-alias"
-        //     keyPassword "goldtree9"
-        // }
+        release {
+            storeFile file("my-release-key.keystore")
+            storePassword "goldtree9"
+            keyAlias "my-key-alias"
+            keyPassword "goldtree9"
+        }
               debug {
             storeFile file('debug.keystore')
             keyAlias 'androiddebugkey'
@@ -133,7 +133,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        //    signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         
         }
         debug{signingConfig signingConfigs.debug}

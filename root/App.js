@@ -30,10 +30,7 @@ const tabNav = createBottomTabNavigator(
       screen: Home,
       navigationOptions: {title: 'Home'}
     },
-    MyCourse: {
-      screen: MyCourse,
-      navigationOptions: {title: 'MyCourse'}
-    },
+
     Play: {
       screen: Play,
       navigationOptions: {title: 'Play'}
