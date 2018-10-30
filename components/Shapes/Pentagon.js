@@ -10,9 +10,12 @@ import styles from './styles';
 export default class Pentagon extends Component {
   render() {
     return (
+      <View>
+      <View style={styles.triangle1}/>
       <View style={styles.pentagon}>
         <View style={styles.pentagonInner} />
         <View style={styles.pentagonBefore} />
+      </View>
       </View>
     );
   }

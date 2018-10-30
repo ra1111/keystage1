@@ -2,18 +2,21 @@
 
 buildscript {
     repositories {
-     
+      maven {
+           url 'https://maven.fabric.io/public'
+        }
         jcenter()
        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
 classpath 'com.google.gms:google-services:4.0.0'
+  classpath 'io.fabric.tools:gradle:1.25.4'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
-
+ext { googlePlayServicesVersion = "15.0.1" }
 allprojects {
     repositories {
         maven { url 'https://maven.google.com' }

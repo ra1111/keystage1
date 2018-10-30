@@ -3,6 +3,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   View,
+  Platform,
   Text,
   Image
 } from 'react-native';
@@ -17,37 +18,37 @@ const itemSkus = Platform.select({
   ]
 });
 export default class MenuItem extends Component {
-  async componentWillMount()
-  {
-   try {
-    const result= await RNIap.prepare();
-     const products = await RNIap.getProducts(itemSkus);
-     console.log('result', result);
+//   async componentWillMount()
+//   {
+//    try {
+//     const result= await RNIap.prepare();
+//      const products = await RNIap.getProducts(itemSkus);
+//      console.log('result', result);
  
-    console.log(products);
-   } catch(err) {
-     console.warn(err); 
-   }
-  }
-  componentWillUnmount() {
-   RNIap.endConnection();
- }
+//     console.log(products);
+//    } catch(err) {
+//      console.warn(err); 
+//    }
+//   }
+//   componentWillUnmount() {
+//    RNIap.endConnection();
+//  }
  
  
- buyItem = async(sku) => {
-   try {
-     console.info('buyItem: ' + sku);
-     // const purchase = await RNIap.buyProduct(sku);
-     const purchase = await RNIap.buyProductWithoutFinishTransaction(sku);
-     console.info(purchase);
-   //  this.setState({ receipt: purchase.transactionReceipt }, () => this.goToNext());
-   } catch (err) {
-     console.warn(err.code, err.message);
-     Alert.alert(err.message);
-   }
- }
+//  buyItem = async(sku) => {
+//    try {
+//      console.info('buyItem: ' + sku);
+//      // const purchase = await RNIap.buyProduct(sku);
+//      const purchase = await RNIap.buyProductWithoutFinishTransaction(sku);
+//      console.info(purchase);
+//    //  this.setState({ receipt: purchase.transactionReceipt }, () => this.goToNext());
+//    } catch (err) {
+//      console.warn(err.code, err.message);
+//      Alert.alert(err.message);
+//    }
+//  }
   render() {
-    console.log(this.props);
+
     return (
       <TouchableOpacity
         style={styles.container}

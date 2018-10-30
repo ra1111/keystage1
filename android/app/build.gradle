@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+//apply plugin: 'io.fabric'
 
 import com.android.build.OutputFile
 
@@ -72,6 +73,7 @@ import com.android.build.OutputFile
  * ]
  */
 
+
 project.ext.react = [
     entryFile: "index.js"
 ]
@@ -94,6 +96,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+    
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
@@ -101,8 +104,8 @@ android {
         applicationId "com.keystage1"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 3
-        versionName "1.2"
+        versionCode 6
+        versionName "1.5"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -154,10 +157,12 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-iap')
     compile project(':react-native-google-signin')
     compile project(':react-native-vector-icons')
     compile 'com.google.firebase:firebase-core:16.0.0'
-    compile fileTree(dir: "libs", include: ["*.jar"])
+    compile fileTree(dir: "libs", include: ["*.jar"]) 
+    compile 'com.crashlytics.sdk.android:crashlytics:2.9.3'
     //noinspection GradleCompatible
     compile "com.android.support:appcompat-v7:23.4.0"
     compile "com.facebook.react:react-native:+"

@@ -80,6 +80,7 @@ export default class Add extends Component {
   componentWillMount() {
     this.randomGenerator();
   }
+  
   randomGenerator() {
     number1 = Math.floor(Math.random() * 10);
     number2 = Math.floor(Math.random() * 10);

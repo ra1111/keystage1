@@ -59,6 +59,7 @@ export default class ShapesSelect extends Component {
     questionNumber = 0;
     correct = 5;
     score = 0;
+    this.options();
   }
   options() {
     let arr = [];
@@ -131,6 +132,7 @@ export default class ShapesSelect extends Component {
   }
   render() {
     if (questionNumber !== 5 && k!==3) {
+      console.log(this.state.number1)
       return (
         <ImageBackground source={Back} style={styles.container}>
             <Life book1={book1} book2={book2} book3={book3}    navigation={this.props.navigation}/>

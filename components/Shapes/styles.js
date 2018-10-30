@@ -25,9 +25,10 @@ export default {
   oval: {
     width: 100,
     height: 100,
-    borderRadius: 50,
+    borderRadius: 70,
+
     backgroundColor: 'red',
-    transform: [{scaleX: 2}]
+    transform: [{scaleX: 1.5}]
   },
   hexagon: {
     width: 100,
@@ -94,7 +95,19 @@ export default {
     borderRightColor: 'transparent',
     borderRightWidth: 45,
     borderTopWidth: 0,
-    borderTopColor: 'transparent'
+    borderTopColor: 'transparent',
+  },
+  triangle1:{
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderLeftWidth: 45,
+    borderRightWidth: 45,
+    borderBottomWidth: 50,
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderBottomColor: 'red'
   },
   triangle: {
     width: 0,
