@@ -25,7 +25,25 @@ import styles from './styles';
 import Life from '../Life';
 import GameOver from '../GameOver';
 import Back from '../../Assets/Images/back.jpg';
+import Sound from 'react-native-sound';
 var {width, height} = Dimensions.get('window');
+Sound.setCategory('Playback');
+var Right = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Right.getDuration() + 'number of channels: ' + Right.getNumberOfChannels());
+});
+var Wrong=new Sound('wrong.wav', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Wrong.getDuration() + 'number of channels: ' + Wrong.getNumberOfChannels());
+});
 let number1 = 0,
   number2 = 0,
   ans = 0,
@@ -57,6 +75,34 @@ export default class Count extends Component {
   componentWillMount() {
     this.randomGenerator();
   }
+  sound(e)
+{
+  if(e==='right')
+  Right.play((success) => {
+    if (success) {
+      console.log('successfully finished playing');
+    } else {
+      console.log('playback failed due to audio decoding errors');
+      // reset the player to its uninitialized state (android only)
+      // this is the only option to recover after an error occured and use the player again
+      Right.reset();
+    }
+  });
+  else{
+    Wrong.play((success) => {
+      if (success) {
+        console.log('successfully finished playing');
+      } else {
+        console.log('playback failed due to audio decoding errors');
+        // reset the player to its uninitialized state (android only)
+        // this is the only option to recover after an error occured and use the player again
+        Wrong.reset();
+      }
+    });
+  }
+  
+}
+
   play() {
     book1 = 'green';
     book2 = 'green';
@@ -72,6 +118,7 @@ export default class Count extends Component {
     score = 0;
   }
   randomGenerator() {
+    this.sound('right')
     obj = [];
     let max = arr.length;
     ans = Math.floor((Math.random() + 1) * 1000) % 10 + 3;
@@ -113,6 +160,7 @@ export default class Count extends Component {
     score += 5;
   }
   wrongOption() {
+    this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
     }

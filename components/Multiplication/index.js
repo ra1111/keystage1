@@ -13,6 +13,7 @@ import {NavigationActions} from 'react-navigation';
 import styles from './styles';
 import Life from '../Life';
 import GameOver from '../GameOver';
+import Sound from 'react-native-sound';
 import Back from '../../Assets/Images/back.jpg';
 let number1 = 0,
   number2 = 0,
@@ -27,6 +28,23 @@ let questionNumber = 0;
 let correct = 5;
 let score = 0;
 let num = [2, 5, 10];
+Sound.setCategory('Playback');
+var Right = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Right.getDuration() + 'number of channels: ' + Right.getNumberOfChannels());
+});
+var Wrong=new Sound('wrong.wav', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Wrong.getDuration() + 'number of channels: ' + Wrong.getNumberOfChannels());
+});
 var {width, height} = Dimensions.get('window');
 export default class Multiplication extends Component {
   constructor(props) {
@@ -40,6 +58,7 @@ export default class Multiplication extends Component {
     };
   }
   wrongOption(e) {
+    this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
     }
@@ -55,6 +74,34 @@ export default class Multiplication extends Component {
     correct -= 1;
     this.randomGenerator();
   }
+  sound(e)
+{
+  if(e==='right')
+  Right.play((success) => {
+    if (success) {
+      console.log('successfully finished playing');
+    } else {
+      console.log('playback failed due to audio decoding errors');
+      // reset the player to its uninitialized state (android only)
+      // this is the only option to recover after an error occured and use the player again
+      Right.reset();
+    }
+  });
+  else{
+    Wrong.play((success) => {
+      if (success) {
+        console.log('successfully finished playing');
+      } else {
+        console.log('playback failed due to audio decoding errors');
+        // reset the player to its uninitialized state (android only)
+        // this is the only option to recover after an error occured and use the player again
+        Wrong.reset();
+      }
+    });
+  }
+  
+}
+
   play() {
     k = 0;
     correct = 5;
@@ -81,6 +128,7 @@ export default class Multiplication extends Component {
     this.randomGenerator();
   }
   randomGenerator() {
+    this.sound('right')
     number1 = Math.floor(Math.random() * 1000 + 5) % 3;
     number2 = Math.floor(Math.random() * 1000 + 5) % 3;
     number1 = num[number1];

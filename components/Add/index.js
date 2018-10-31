@@ -9,11 +9,12 @@ import {
   Image
 } from 'react-native';
 import {Icon} from 'react-native-elements';
-
+import Sound from 'react-native-sound';
 import {NavigationActions} from 'react-navigation';
 import styles from './styles';
 import Life from '../Life';
 import GameOver from '../GameOver';
+
 import Back from '../../Assets/Images/back.jpg';
 var {width, height} = Dimensions.get('window');
 let number1 = 0,
@@ -28,6 +29,24 @@ let k = 0;
 let questionNumber = 0;
 let correct = 5;
 let score = 0;
+let hello;
+Sound.setCategory('Playback');
+var Right = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Right.getDuration() + 'number of channels: ' + Right.getNumberOfChannels());
+});
+var Wrong=new Sound('wrong.wav', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Wrong.getDuration() + 'number of channels: ' + Wrong.getNumberOfChannels());
+});
 export default class Add extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +58,38 @@ export default class Add extends Component {
       option2: 0
     };
   }
+sound(e)
+{
+  if(e==='right')
+  Right.play((success) => {
+    if (success) {
+      console.log('successfully finished playing');
+    } else {
+      console.log('playback failed due to audio decoding errors');
+      // reset the player to its uninitialized state (android only)
+      // this is the only option to recover after an error occured and use the player again
+      Right.reset();
+    }
+  });
+  else{
+    Wrong.play((success) => {
+      if (success) {
+        console.log('successfully finished playing');
+      } else {
+        console.log('playback failed due to audio decoding errors');
+        // reset the player to its uninitialized state (android only)
+        // this is the only option to recover after an error occured and use the player again
+        Wrong.reset();
+      }
+    });
+  }
+  
+}
+
+
+
   wrongOption(e) {
+    this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
     }
@@ -80,8 +130,9 @@ export default class Add extends Component {
   componentWillMount() {
     this.randomGenerator();
   }
-  
+
   randomGenerator() {
+    this.sound('right')
     number1 = Math.floor(Math.random() * 10);
     number2 = Math.floor(Math.random() * 10);
     ans = number1 + number2;

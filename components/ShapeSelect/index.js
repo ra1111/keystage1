@@ -20,6 +20,7 @@ import Octagon from '../Shapes/Octagon';
 import Life from '../Life';
 import Pentagon from '../Shapes/Pentagon';
 import GameOver from '../GameOver';
+import Sound from 'react-native-sound';
 import Back from '../../Assets/Images/back.jpg';
 let key = [
   Triangle,
@@ -32,6 +33,23 @@ let key = [
   Octagon,
   Pentagon
 ];
+Sound.setCategory('Playback');
+var Right = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Right.getDuration() + 'number of channels: ' + Right.getNumberOfChannels());
+});
+var Wrong=new Sound('wrong.wav', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Wrong.getDuration() + 'number of channels: ' + Wrong.getNumberOfChannels());
+});
 let ans = 'Triangle';
 let book1 = 'green',
   book2 = 'green',
@@ -61,7 +79,36 @@ export default class ShapesSelect extends Component {
     score = 0;
     this.options();
   }
+  sound(e)
+{
+  if(e==='right')
+  Right.play((success) => {
+    if (success) {
+      console.log('successfully finished playing');
+    } else {
+      console.log('playback failed due to audio decoding errors');
+      // reset the player to its uninitialized state (android only)
+      // this is the only option to recover after an error occured and use the player again
+      Right.reset();
+    }
+  });
+  else{
+    Wrong.play((success) => {
+      if (success) {
+        console.log('successfully finished playing');
+      } else {
+        console.log('playback failed due to audio decoding errors');
+        // reset the player to its uninitialized state (android only)
+        // this is the only option to recover after an error occured and use the player again
+        Wrong.reset();
+      }
+    });
+  }
+  
+}
+
   options() {
+    this.sound('right')
     let arr = [];
     let k = 0;
     let min = 29,
@@ -115,6 +162,7 @@ export default class ShapesSelect extends Component {
     score += 5;
   }
   wrong() {
+    this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
     }

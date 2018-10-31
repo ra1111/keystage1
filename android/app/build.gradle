@@ -157,6 +157,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-sound')
     compile project(':react-native-iap')
     compile project(':react-native-google-signin')
     compile project(':react-native-vector-icons')

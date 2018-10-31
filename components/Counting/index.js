@@ -11,6 +11,7 @@ import {
 import * as converter from 'number-to-words';
 import {Icon} from 'react-native-elements';
 import {NavigationActions} from 'react-navigation';
+import Sound from 'react-native-sound';
 import styles from './styles';
 import GameOver from '../GameOver';
 import Life from '../Life';
@@ -28,6 +29,23 @@ let questionNumber = 0;
 let correct = 5;
 let score = 0;
 
+Sound.setCategory('Playback');
+var Right = new Sound('correct.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Right.getDuration() + 'number of channels: ' + Right.getNumberOfChannels());
+});
+var Wrong=new Sound('wrong.wav', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+  // loaded successfully
+  console.log('duration in seconds: ' + Wrong.getDuration() + 'number of channels: ' + Wrong.getNumberOfChannels());
+});
 export default class Counting extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +69,36 @@ export default class Counting extends Component {
     book3 = 'green';
     this.randomGenerator();
   }
+  sound(e)
+{
+  if(e==='right')
+  Right.play((success) => {
+    if (success) {
+      console.log('successfully finished playing');
+    } else {
+      console.log('playback failed due to audio decoding errors');
+      // reset the player to its uninitialized state (android only)
+      // this is the only option to recover after an error occured and use the player again
+      Right.reset();
+    }
+  });
+  else{
+    Wrong.play((success) => {
+      if (success) {
+        console.log('successfully finished playing');
+      } else {
+        console.log('playback failed due to audio decoding errors');
+        // reset the player to its uninitialized state (android only)
+        // this is the only option to recover after an error occured and use the player again
+        Wrong.reset();
+      }
+    });
+  }
+  
+}
+
   randomGenerator() {
+    this.sound('right')
     number = Math.floor(Math.random() * 50) + Math.floor(Math.random() * 50);
     ans = converter.toWords(number);
     option1 = converter.toWords(number - 1);
@@ -93,6 +140,7 @@ export default class Counting extends Component {
     score += 5;
   }
   wrongOption() {
+    this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
     }

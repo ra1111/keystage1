@@ -8,6 +8,7 @@ import {
   ProgressBarAndroid,
   ProgressViewIOS
 } from 'react-native';
+import Sound from 'react-native-sound';
 import {NavigationActions} from 'react-navigation';
 import {Icon} from 'react-native-elements';
 import styles from './style';
