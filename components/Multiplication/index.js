@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   View,
   StyleSheet,
+  Vibration,
   Text,
   Dimensions,
   Image
@@ -58,6 +59,7 @@ export default class Multiplication extends Component {
     };
   }
   wrongOption(e) {
+    Vibration.vibrate(500)
     this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
@@ -103,6 +105,7 @@ export default class Multiplication extends Component {
 }
 
   play() {
+  
     k = 0;
     correct = 5;
     score = 0;

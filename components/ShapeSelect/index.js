@@ -5,6 +5,7 @@ import {
   View,
   Text,
   Image,
+  Vibration,
   ScrollView
 } from 'react-native';
 import {Icon} from 'react-native-elements';
@@ -162,6 +163,7 @@ export default class ShapesSelect extends Component {
     score += 5;
   }
   wrong() {
+    Vibration.vibrate(500)
     this.sound('wrong')
     if (k == 0) {
       book1 = 'red';

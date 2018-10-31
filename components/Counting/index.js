@@ -3,6 +3,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   View,
+  Vibration,
   StyleSheet,
   Text,
   Dimensions,
@@ -141,6 +142,7 @@ export default class Counting extends Component {
   }
   wrongOption() {
     this.sound('wrong')
+    Vibration.vibrate(500)
     if (k == 0) {
       book1 = 'red';
     }

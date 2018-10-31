@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
   Text,
+  Vibration,
   Dimensions,
   Image,
   ScrollView
@@ -76,6 +77,7 @@ export default class Currency extends Component {
     };
   }
   wrongOption() {
+    Vibration.vibrate(500)
     this.sound('wrong')
     if (k == 0) {
       book1 = 'red';

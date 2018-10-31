@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   Dimensions,
+  Vibration,
   Image
 } from 'react-native';
 import {Icon} from 'react-native-elements';
@@ -110,6 +111,7 @@ export default class Add extends Component {
 
   
   wrongOption(e) {
+    Vibration.vibrate(500)
     this.sound('wrong')
     if (k == 0) {
       book1 = 'red';

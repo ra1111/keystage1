@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
   Text,
+  Vibration,
   Dimensions,
   Image,
   ScrollView
@@ -160,6 +161,7 @@ export default class Count extends Component {
     score += 5;
   }
   wrongOption() {
+    Vibration.vibrate(500)
     this.sound('wrong')
     if (k == 0) {
       book1 = 'red';
