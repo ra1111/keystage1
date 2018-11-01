@@ -1,55 +1,30 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, ScrollView,Platform} from 'react-native';
+import {StyleSheet, Text, View,Alert, ScrollView,Platform} from 'react-native';
 import Game from '../components/Game';
 import * as RNIap from 'react-native-iap';
 let purchases;
 const itemSkus = Platform.select({
-
+  ios: [
+    'com.cooni.point1000', 'com.cooni.point5000', // dooboolab
+  ],
   android: [
-    'com.keystage1'
-  ]
+    'bodmass', // subscription
+  ],
 });
-
 export default class Play extends Component {
- async componentDidMount()
- {
-  
-  try {
-    
-    const result=await RNIap.prepare();
-   //const result= await RNIap;
-    const products = await RNIap.getProducts(itemSkus);
-    console.log('result', result);
+  constructor(props) {
+    super(props);
 
-  // console.log(products);
-  } catch(err) {
-    console.log(err); 
-    console.log(RNIap.prepare());
+    this.state = {
+      productList: [],
+      receipt: '',
+      availableItemsMessage: '',
+    };
   }
- }
- componentWillUnmount() {
-  RNIap.endConnection();
-}
 
-// getAvailablePurchases = async() => {
-//   try {
-//     //console.info('Get available purchases (non-consumable or unconsumed consumable)');
-//      purchases = await RNIap.getAvailablePurchases();
-//     //console.info('Available purchases :: ', purchases);
-//     if (purchases && purchases.length > 0) {
-//       this.setState({
-//         availableItemsMessage: `Got ${purchases.length} items.`,
-//         receipt: purchases[0].transactionReceipt
-//       });
-//     }
-//   } catch(err) {
-//    // console.warn(err.code, err.message);
-//     Alert.alert(err.message);
-//   }
-// }
+
   render() {
-   console.log( );
-   // this.getAvailablePurchases();
+
     const navigation = this.props.navigation;
     return (
       <ScrollView>
