@@ -16,7 +16,7 @@ export default {
     width: '90%',
     alignSelf: 'center',
     marginVertical:40,
-    backgroundColor: 'white'
+    backgroundColor: 'orange'
   },
   stats: {
     justifyContent: 'space-around',
@@ -67,9 +67,16 @@ export default {
     marginVertical:10,
   },
   oops: {
-    fontSize: 18,
-    color: 'white',
+    fontSize: 28,
+    fontWeight:'700',
+    color: '#009624',
     marginVertical:20
+  },
+  margin:{
+justifyContent:'center',
+marginBottom:50,
+backgroundColor: 'transparent',
+
   },
   buttonText: {
     color: '#14D41A',
